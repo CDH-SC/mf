@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{title}}!\n  </h1>\n  <img width=\"300\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<!-- Main page for MF -->\n\n<div id=\"body_wrap\">\n  <div id=\"mid_wrap\">\n    <div id=\"nav\">\n      <!-- Navigation Bar -->\n      <ul class=\"navigation\" id=\"nav_menu\">\n        <li>\n          <a title=\"Home\" href=\"\">Home</a>\n        </li>\n        <li>\n          <a title=\"Browse by Date\" href=\"\">Browse by Date</a>\n        </li>\n        <li>\n          <a title=\"Browse by Hand\" href=\"\">Browse by Hand</a>\n        </li>\n        <li>\n          <a title=\"About\" href=\"\">About</a>\n        </li>\n      </ul>\n      <!-- Nav Bar END -->\n    </div>\n    <!-- nav END -->\n    <div id=\"mid\">\n      <div id=\"col_wrap\">\n        <div id=\"col_1\">\n          <div id=\"body_txt\">\n            <!-- Folio Header -->\n            <h2 style=\"margin-top: 1px; padding-top: 0;\">1897: 5r</h2>\n            <!-- Folio Metadata -->\n            <p>\n              <li>Year: YYYY</li>\n              <li>Hand: name</li>\n              <li>Diary Num: num</li>\n              <br>\n              <li>Folio Num: num</li>\n              <li>Location: location</li> \n              <br>\n              <li>Transcription Status: </li>\n              <li>Transcriber: name</li>\n            </p>\n          </div>\n          <div id=\"search_wrap\">\n            <p>Search</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div id=\"col_2\">\n      <img src=\"../assets/MF_Diary1.jpg\">\n    </div>\n    <div id=\"col_3\">\n      \n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -32,7 +32,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#body_wrap {\n  text-align: center;\n  margin: 0;\n  padding-top: 10px;\n  padding-bottom: 50px; }\n\n#mid_wrap {\n  padding-top: 125px;\n  background: url(" + __webpack_require__("../../../../../src/assets/MFHeader.png") + ") no-repeat 50% 0;\n  background-size: 500px 100px; }\n\n#nav {\n  text-align: center;\n  max-width: 100%;\n  margin: 0;\n  padding: 3px 0 5px 0; }\n\n#nav_menu {\n  padding-top: 3px;\n  white-space: nowrap; }\n  #nav_menu li {\n    display: inline;\n    font: 17px normal;\n    padding-left: 40px;\n    padding-right: 40px;\n    z-index: 1; }\n  #nav_menu a:link, #nav_menu a:visited {\n    color: #47525e;\n    text-decoration: none; }\n  #nav_menu a:hover {\n    color: #f24c30;\n    text-decoration: underline; }\n\n#mid {\n  position: relative;\n  max-width: 940px;\n  margin: 0 auto 0 auto; }\n\n#col_wrap {\n  max-width: 100%;\n  padding: 0;\n  min-height: 14px;\n  font: 14px;\n  line-height: 14px;\n  overflow: hidden; }\n\n#col_1 {\n  float: none;\n  max-width: 900px;\n  margin: 0;\n  padding: 20px; }\n  #col_1 li {\n    display: inline;\n    text-align: left;\n    margin: 0;\n    padding: 0 75px 0 10px; }\n\n#col_2 {\n  float: left;\n  width: 45%;\n  min-height: 500px;\n  margin-left: 5%;\n  border: 2px solid #343f4b; }\n  #col_2 img {\n    width: 100%;\n    height: auto; }\n\n#col_3 {\n  float: right;\n  width: 45%;\n  min-height: 500px;\n  margin-right: 5%;\n  border: 2px solid #343f4b; }\n\n#body_txt {\n  text-align: left;\n  color: #f24c30;\n  max-width: 515px;\n  line-height: 21px;\n  padding: 10px; }\n\nh2 {\n  text-align: left;\n  color: #47525e;\n  max-width: 515px;\n  line-height: 25px;\n  padding-bottom: 10px; }\n\n#search_wrap {\n  max-width: 100%;\n  font: 12px bold;\n  color: #969faa;\n  background: #343f4b 0 0;\n  text-align: left;\n  margin: 0 0 15px 0;\n  border: 1px solid #8492a6;\n  border-radius: 5px;\n  height: 20px;\n  padding: 2px; }\n", ""]);
 
 // exports
 
@@ -115,6 +115,13 @@ var AppModule = (function () {
 }());
 
 
+
+/***/ }),
+
+/***/ "../../../../../src/assets/MFHeader.png":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "MFHeader.b13a71b8689edaecfd30.png";
 
 /***/ }),
 
