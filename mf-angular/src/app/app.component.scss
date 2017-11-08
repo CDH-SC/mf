@@ -22,28 +22,7 @@ $secondary-color: #f24c30;
     padding: 3px 0 5px 0;
 }
 
-#nav_menu {
-    padding-top: 3px;
-    white-space: nowrap;
 
-    li {
-        display: inline;
-        font: 17px normal;
-        padding-left: 40px;
-        padding-right: 40px;
-        z-index: 1;
-    }
-    
-    a:link, a:visited {
-        color: $primary_color;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: $secondary_color;
-        text-decoration: underline;
-    }
-}
 
 #mid {
     position: relative;
