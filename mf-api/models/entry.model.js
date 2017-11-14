@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 //Define schema
 var entrySchema = new Schema({
   author:       String,
-  date:         String,
+  date:         Date,
   transcriber:  String,
   textTranscribed: String,
   textEditoral: String

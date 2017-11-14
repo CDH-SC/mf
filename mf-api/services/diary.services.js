@@ -20,7 +20,7 @@ exports.getDiaries = async function(query, page, limit){
 
   } catch (e) {
     //Return error message
-    throw Error('Error while Paginating diaries')
+    throw Error(e.message, "Error while Paginating diaries")
   }
 }
 
@@ -38,7 +38,7 @@ exports.createDiary = async function(diary){
     return savedDiary;
   }catch(e){
     //Return error message
-    throw Error("Error while creating diary")
+    throw Error(e.message, "Error while creating diary")
   }
 }
 
@@ -49,7 +49,7 @@ exports.updateDiary = async function(diary){
     //Find the old diary object by the id
     var oldDiary = await Diary.findById(id);
   }catch(e){
-    throw Error("Error occured while finding the diary")
+    throw Error(e.message, "Error occured while finding the diary")
   }
 
   //If no old diary object exists return false
@@ -69,7 +69,7 @@ exports.updateDiary = async function(diary){
     var savedDiary = await oldDiary.save()
     return savedDiary;
   }catch(e){
-    throw Error("Error occured while updating the diary")
+    throw Error(e.message, "Error occured while updating the diary")
   }
 }
 
@@ -78,10 +78,10 @@ exports.deleteDiary = async function(id){
   try{
     var deleted = await Diary.remove({_id: id})
     if(deleted.result.n === 0){
-      throw Error("Diary could not be deleted")
+      throw Error(e.message, "Diary could not be deleted")
     }
     return deleted
   }catch(e){
-    throw Error("Error occured while deleting the diary")
+    throw Error(e.message, "Error occured while deleting the diary")
   }
 }

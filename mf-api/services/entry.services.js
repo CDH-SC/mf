@@ -20,7 +20,7 @@ exports.getEntries = async function(query, page, limit){
 
   } catch (e) {
     //Return error message
-    throw Error('Error while Paginating entries')
+    throw Error(e.message, "Error while Paginating entries")
   }
 }
 
@@ -40,7 +40,7 @@ exports.createEntry = async function(entry){
     return savedEntry;
   }catch(e){
     //Return error message
-    throw Error("Error while creating entry")
+    throw Error(e.message, "Error while creating entry")
   }
 }
 
@@ -51,7 +51,7 @@ exports.updateEntry = async function(entry){
     //Find the old entry object by the id
     var oldEntry = await Entry.findById(id);
   }catch(e){
-    throw Error("Error occured while finding the entry")
+    throw Error(e.message, "Error occured while finding the entry")
   }
 
   //If no old entry object exists return false
@@ -73,7 +73,7 @@ exports.updateEntry = async function(entry){
     var savedEntry = await oldEntry.save()
     return savedEntry;
   }catch(e){
-    throw Error("Error occured while updating the entry")
+    throw Error(e.message, "Error occured while updating the entry")
   }
 }
 
@@ -82,10 +82,10 @@ exports.deleteEntry = async function(id){
   try{
     var deleted = await Entry.remove({_id: id})
     if(deleted.result.n === 0){
-      throw Error("Entry could not be deleted")
+      throw Error(e.message, "Entry could not be deleted")
     }
     return deleted
   }catch(e){
-    throw Error("Error occured while deleting the entry")
+    throw Error(e.message, "Error occured while deleting the entry")
   }
 }
