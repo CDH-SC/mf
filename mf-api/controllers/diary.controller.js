@@ -37,7 +37,7 @@ exports.createDiary = async function(req, res, next){
   try {
     //Calling service function with new object from request body
     var createdDiary = await DiaryService.createDiary(diary)
-    return res.status(201).json({status: 201. data: createdDiary, message: "Successfully created diary"})
+    return res.status(201).json({status: 201, data: createdDiary, message: "Successfully created diary"})
 
   }catch(e){
     //Return error response with code and error message
@@ -58,7 +58,7 @@ exports.updateDiary = async function(req, res, next){
   var diary = {
     id,
     volume_id: req.body.volume_id ? req.body.volume_id : null,
-    folio_id: req.body.folio_i    //Return error response with code and error messaged ? req.body.folio_id : null,
+    folio_id: req.body.folio_i,    //Return error response with code and error messaged ? req.body.folio_id : null,
     date: req.body.date ? req.body.date : null
   }
 

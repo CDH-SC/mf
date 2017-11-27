@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var bluebird = require('bluebird')
 
+// Get the API route
+var api = require('./routes/api.route')
+
 var app = express();
 
 var mongoose = require('mongoose')
@@ -32,6 +35,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/api', api);
+
+// Angular DIST output folder
+app.use(express.static('../mf-angular/dist'))
+
+// Set all other requests to the Angular app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../mf-angular/dist/index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
