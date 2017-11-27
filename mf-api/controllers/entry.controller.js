@@ -39,7 +39,7 @@ exports.createEntry = async function(req, res, next){
   try {
     //Calling service function with new object from request body
     var createdEntry = await EntryService.createEntry(entry)
-    return res.status(201).json({status: 201. data: createdEntry, message: "Successfully created entry"})
+    return res.status(201).json({status: 201, data: createdEntry, message: "Successfully created entry"})
 
   }catch(e){
     //Return error response with code and error message
@@ -62,7 +62,7 @@ exports.updateEntry = async function(req, res, next){
     author: req.body.author ? req.body.author : null,
     date: req.body.date ? req.body.date : null,
     transcriber: req.body.transcriber ? req.body.transcriber : null,
-    textTranscribed: req.body.textTranscribed ? req.body.textTranscribed: null.
+    textTranscribed: req.body.textTranscribed ? req.body.textTranscribed: null,
     textEditoral: req.body.textEditoral ? req.body.textEditoral : null
   }
 
