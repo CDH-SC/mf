@@ -28,7 +28,8 @@ exports.createDiary = async function(diary){
   //Creating a new mongoose object by using the new keyword
   var newDiary = new Diary({
     volume_id: diary.volume_id,
-    date: diary.date
+    date: diary.date,
+    volumeURL: diary.volumeURL,
   })
 
   try {
@@ -60,6 +61,8 @@ exports.updateDiary = async function(diary){
   //Edit the diary object
   oldDiary.volume_id = diary.volume_id
   oldDiary.date = diary.date
+  oldDiary.volumeURL = diary.volumeURL
+
 
   console.log(oldDiary)
 
