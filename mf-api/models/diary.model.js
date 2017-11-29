@@ -6,8 +6,7 @@ var Schema = mongoose.Schema;
 //Define schema
 var diarySchema = new Schema({
   volume_id:  Number,
-  folio_id:   Number,
-  date:       Date,
+  date:       String,
 });
 
 //Export function to create "Diary" model class

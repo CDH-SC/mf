@@ -30,7 +30,6 @@ exports.createDiary = async function(req, res, next){
   //Require body contains form values
   var diary = {
     volume_id: req.body.volume_id,
-    folio_id: req.body.folio_id,
     date: req.body.date
   }
 
@@ -58,7 +57,6 @@ exports.updateDiary = async function(req, res, next){
   var diary = {
     id,
     volume_id: req.body.volume_id ? req.body.volume_id : null,
-    folio_id: req.body.folio_i,    //Return error response with code and error messaged ? req.body.folio_id : null,
     date: req.body.date ? req.body.date : null
   }
 
