@@ -30,7 +30,8 @@ exports.createDiary = async function(req, res, next){
   //Require body contains form values
   var diary = {
     volume_id: req.body.volume_id,
-    date: req.body.date
+    date: req.body.date,
+    volumeURL: req.body.volumeURL,
   }
 
   try {
@@ -57,7 +58,8 @@ exports.updateDiary = async function(req, res, next){
   var diary = {
     id,
     volume_id: req.body.volume_id ? req.body.volume_id : null,
-    date: req.body.date ? req.body.date : null
+    date: req.body.date ? req.body.date : null,
+    volumeURL: req.body.volumeURL ? req.body.volumeURL : null,
   }
 
   try {
