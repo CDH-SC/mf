@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { BrowseByHandComponent } from './browse-by-hand/browse-by-hand.component';
 import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component';
 import { HomeComponent } from './home/home.component';
+import { PageViewComponent } from './page-view/page-view.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,7 +30,8 @@ const routes: Routes = [
     BrowseByHandComponent,
     BrowseByDateComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    PageViewComponent
   ],
   imports: [
     BrowserModule,
