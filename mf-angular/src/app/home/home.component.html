@@ -12,6 +12,11 @@
           <br>
           <h1>Welcome to the Michael Field Dairy</h1>
           <div id="body_txt">
+            <ul>
+              <li *ngFor="let d of diary">
+                <h5> Volume {{d.volume_id}} : {{ d.date }} </h5>
+              </li>
+            </ul>
             <!-- Folio Header -->
             <!-- Folio Metadata -->
           </div>

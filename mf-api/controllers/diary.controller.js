@@ -32,6 +32,7 @@ exports.createDiary = async function(req, res, next){
     volume_id: req.body.volume_id,
     date: req.body.date,
     volumeURL: req.body.volumeURL,
+    page: req.body.page,
   }
 
   try {
@@ -60,6 +61,7 @@ exports.updateDiary = async function(req, res, next){
     volume_id: req.body.volume_id ? req.body.volume_id : null,
     date: req.body.date ? req.body.date : null,
     volumeURL: req.body.volumeURL ? req.body.volumeURL : null,
+    page: req.body.page ? req.body.page : null,
   }
 
   try {
