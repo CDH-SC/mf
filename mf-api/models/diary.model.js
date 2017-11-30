@@ -8,6 +8,7 @@ var diarySchema = new Schema({
   volume_id:  Number,
   date:       String,
   volumeURL: String,
+  page: [String],
 });
 
 //Export function to create "Diary" model class

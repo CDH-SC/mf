@@ -34,6 +34,7 @@ const routes: Routes = [
     PageViewComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),

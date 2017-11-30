@@ -30,6 +30,7 @@ exports.createDiary = async function(diary){
     volume_id: diary.volume_id,
     date: diary.date,
     volumeURL: diary.volumeURL,
+    page: diary.page,
   })
 
   try {
@@ -62,6 +63,7 @@ exports.updateDiary = async function(diary){
   oldDiary.volume_id = diary.volume_id
   oldDiary.date = diary.date
   oldDiary.volumeURL = diary.volumeURL
+  oldDiary.page = diary.page
 
 
   console.log(oldDiary)
