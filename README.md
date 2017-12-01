@@ -58,7 +58,7 @@
 * Terminal 3 : Builds the webapp to the dist directory to be served by the Express server
   * ```cd <path>/mf/mf-angular/```
   * ```ng build --watch```
-* The AdviseMe application should now be available at http://localhost:3000/home
+* The Michael Field application should now be available at http://localhost:3000/home
 
 ### Unit Tests
 ---
