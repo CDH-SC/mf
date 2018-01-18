@@ -14,6 +14,7 @@ import { BrowseByHandComponent } from './browse-by-hand/browse-by-hand.component
 import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component';
 import { HomeComponent } from './home/home.component';
 import { PageViewComponent } from './page-view/page-view.component';
+import { VolumeLinksComponent } from './volume-links/volume-links.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
+  { path: 'page-view', component: PageViewComponent},
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const routes: Routes = [
     BrowseByDateComponent,
     NavBarComponent,
     HomeComponent,
-    PageViewComponent
+    PageViewComponent,
+    VolumeLinksComponent
   ],
   imports: [
     HttpClientModule,
