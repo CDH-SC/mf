@@ -5,10 +5,17 @@ var mongoosePaginate = require('mongoose-paginate')
 var Schema = mongoose.Schema;
 //Define schema
 var diarySchema = new Schema({
-  volume_id:  Number,
+  notebook_id:  Number,
   date:       String,
-  volumeURL: String,
-  page: [String],
+  notebook_url: String,
+  volume_id: String,
+  ms_id: Number,
+  page: [{
+    number: Number,
+    folio_id: String,
+    image: String,
+    content: String,
+  }],
 });
 
 //Export function to create "Diary" model class
