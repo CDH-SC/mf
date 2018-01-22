@@ -1,5 +1,5 @@
 <ul class="navigation">
   <li *ngFor="let d of diary">
-    <a routerLink="/page-view" routerLinkActive="active">Volume {{d.volume_id}} : {{ d.date }}</a>
+    <a routerLink="/page-view" routerLinkActive="active">Volume {{d.notebook_id}}, {{ d.date }}, {{ d.volume_id }}, Add MS {{ d.ms_id }}</a>
   </li>
 </ul>

@@ -6,6 +6,17 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@angular/animations": "^5.2.1",
+    "@angular/common": "^5.2.1",
+    "@angular/compiler": "^5.2.1",
+    "@angular/compiler-cli": "^5.2.1",
+    "@angular/core": "^5.2.1",
+    "@angular/forms": "^5.2.1",
+    "@angular/http": "^5.2.1",
+    "@angular/platform-browser": "^5.2.1",
+    "@angular/platform-browser-dynamic": "^5.2.1",
+    "@angular/platform-server": "^5.2.1",
+    "@angular/router": "^5.2.1",
     "bluebird": "^3.5.1",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
@@ -16,7 +27,9 @@
     "mongoose": "^4.13.0",
     "mongoose-paginate": "^5.0.3",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "rxjs": "^5.5.6",
+    "serve-favicon": "~2.4.5",
+    "typescript": "2.4.2"
   },
   "devDependencies": {
     "@angular/cli": "^1.5.0",
