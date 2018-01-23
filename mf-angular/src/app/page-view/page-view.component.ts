@@ -12,6 +12,8 @@ import 'rxjs/add/operator/map'
 export class PageViewComponent implements OnInit {
 
   diary : String;
+  // Default page
+  page = 2;
 
   constructor(private http: HttpClient) { }
 
