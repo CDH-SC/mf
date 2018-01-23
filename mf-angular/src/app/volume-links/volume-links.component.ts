@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DataService } from '../../services/pageview.service';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -18,7 +19,14 @@ export class VolumeLinksComponent implements OnInit {
   ngOnInit() {
     this.http.get('/api/diaries').subscribe(data => {
       this.diary = data["data"]["docs"];
+      console.log(this.diary);
     })
+  }
+
+  onClick(event) {
+    var target = event.target
+    var notebook_id = target.attributes.id;
+    console.log(notebook_id.value);
   }
 
 }

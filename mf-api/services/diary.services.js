@@ -24,14 +24,29 @@ exports.getDiaries = async function(query, page, limit){
   }
 }
 
+//Async function to get the Diary list by Id
+exports.getDiariesById = async function(id){
+
+  //Try Catch the awaited promise to handle the error
+  try {
+    var diaries = await Diary.findById({_id: id});
+
+    return diaries;
+
+  } catch (e) {
+    //Return error message
+    throw Error(e.message, "Error while Paginating diaries")
+  }
+}
+
 exports.createDiary = async function(diary){
   //Creating a new mongoose object by using the new keyword
   var newDiary = new Diary({
-    notebook_id: diary.notebook_id,
+    _id: diary._id,
     date: diary.date,
     notebook_url: diary.notebook_url,
-    volume_id: diary.volume_id,
-    ms_id: diary.ms_id,
+    volume_num: diary.volume_num,
+    ms_num: diary.ms_num,
     page: diary.page,
   })
 
@@ -62,11 +77,11 @@ exports.updateDiary = async function(diary){
 
   console.log(oldDiary)
   //Edit the diary object
-  olddiary.notebook_id = diary.notebook_id
+  olddiary._id = diary._id
   oldDiary.date = diary.date
   oldDiary.notebook_url = diary.notebook_url
-  oldDiary.volume_id = diary.volume_id
-  oldDiary.ms_id = diary.ms_id
+  oldDiary.volume_num = diary.volume_num
+  oldDiary.ms_num = diary.ms_num
   oldDiary.page = diary.page
 
 

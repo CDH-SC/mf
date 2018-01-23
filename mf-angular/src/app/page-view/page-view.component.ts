@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-page-view',
@@ -8,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageViewComponent implements OnInit {
 
-  constructor() { }
+  diary : String;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('/api/diaries/18').subscribe(data => {
+      this.diary = data["data"];
+      console.log(this.diary)
+    })
   }
 
 }
