@@ -34,12 +34,12 @@
     <div class="col-sm">
       <div class="viewer-box">
         left
-        <img src="assets{{ diary.notebook_url }}{{ diary.page[0].image }}"/>
+        <img src="assets{{ diary.notebook_url }}{{ diary.page[page].image }}"/>
       </div>
     </div>
     <div class="col-sm">
       <div class="viewer-box">
-        <div [innerHTML]="diary.page[0].content"></div>
+        <div [innerHTML]="diary.page[page].content"></div>
       </div>
     </div>
   </div>
