@@ -24,16 +24,34 @@ exports.getDiaries = async function(req, res, next){
   }
 }
 
+//Async Controller fuction to get diary list by Id
+exports.getDiariesById = async function(req, res, next){
+
+  //Require id
+  var id = req.params.id;
+
+  try {
+    var diaries = await DiaryService.getDiariesById(id)
+
+    //Return diaries list with appropriate HTTP status code and message
+    return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diares"});
+
+  }catch(e){
+    //Return error response with code and error message
+    return res.status(400).json({status: 400, message: e.message});
+  }
+}
+
 //Async controller function to create diary
 exports.createDiary = async function(req, res, next){
 
   //Require body contains form values
   var diary = {
-    notebook_id: req.body.notebook_id,
+    _id: req.body._id,
     date: req.body.date,
     notebook_url: req.body.notebook_url,
-    volume_id: req.body.volume_id,
-    ms_id: req.body.ms_id,
+    volume_num: req.body.volume_num,
+    ms_num: req.body.ms_num,
     page: req.body.page,
   }
 
@@ -60,11 +78,11 @@ exports.updateDiary = async function(req, res, next){
 
   var diary = {
     id,
-    notebook_id: req.body.notebook_id ? req.body.notebook_id : null,
+    _id: req.body._id ? req.body._id : null,
     date: req.body.date ? req.body.date : null,
     notebook_url: req.body.notebook_url ? req.body.notebook_url : null,
-    volume_id: req.body.volume_id ? req.body.volume_id: null,
-    ms_id: req.body.ms_id ? req.body.ms_id: null,
+    volume_num: req.body.volume_num ? req.body.volume_num: null,
+    ms_num: req.body.ms_num ? req.body.ms_num: null,
     page: req.body.page ? req.body.page : null,
   }
 
