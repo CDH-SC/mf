@@ -33,8 +33,15 @@
 
 <!-- Pagination bar -->
 <div class="container">
-    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="100" [(page)]="page" [maxSize]="10" [pageSize]="1" [ellipses]="false"></ngb-pagination>
-    <p>page = {{page}}</p>
+  <ngb-pagination class="d-flex justify-content-center"
+    [collectionSize]="100"
+    [(page)]="page"
+    [maxSize]="10"
+    [pageSize]="1"
+    [ellipses]="false"
+    size="sm"
+  ></ngb-pagination>
+  <p>page = {{page}}</p>
 </div>
 
 <!-- Viewer boxes manuscript/transciption -->
@@ -43,7 +50,6 @@
     <!-- Manuscript -->
     <div class="col-sm">
       <div class="viewer-box">
-        left
         <img src="assets{{ diary.notebook_url }}{{ diary.page[page].image }}"/>
       </div>
     </div>
@@ -56,7 +62,20 @@
   </div>
 </div>
 
+<!-- Pagination bar -->
+<div class="container">
+    <ngb-pagination class="d-flex justify-content-center"
+      [collectionSize]="100"
+      [(page)]="page"
+      [maxSize]="10"
+      [pageSize]="1"
+      [ellipses]="false"
+      size="sm"
+    ></ngb-pagination>
+</div>
+
 <!-- Pagination bar (old) -->
+<!--
 <div class="container">
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center pagination-sm">
@@ -85,3 +104,4 @@
     </ul>
   </nav>
 </div>
+-->
