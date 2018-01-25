@@ -8,14 +8,14 @@
   <div class="metadata">
     <!-- First row -->
     <div class="d-flex">
-      <div class="p-2">Year: xxxx</div>
+      <div class="p-2">Year: {{ diary.date }}</div>
       <div class="p-2">Hand: xxxx</div>
-      <div class="p-2">Diary Num: xx</div>
+      <div class="p-2">Diary Num: {{ diary.volume_num }}</div>
     </div>
     <!-- Second row -->
     <div class="d-flex">
       <div class="p-2">Folio Num: {{ diary.page[page].folio_num }}</div>
-      <div class="p-2">Location: xxxx</div>
+      <div class="p-2">Manuscript Num: Add MS {{ diary.ms_num }}</div>
     </div>
     <!-- Third row -->
     <div class="d-flex">

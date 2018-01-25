@@ -13,7 +13,7 @@ export class PageViewComponent implements OnInit {
 
   diary : String;
   // Default page
-  page = 2;
+  page = 1;
 
   constructor(private http: HttpClient) { }
 
