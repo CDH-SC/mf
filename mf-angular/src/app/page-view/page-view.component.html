@@ -1,17 +1,23 @@
+<!-- Title + Metadata -->
 <div class="container">
   <div class="row">
-    <h5>XXXX</h5>
+    <!-- Date + Folio num -->
+    <h5>{{ diary.date }}: {{ diary.page[page].folio_num }}</h5>
   </div>
+  <!-- Metadata -->
   <div class="metadata">
+    <!-- First row -->
     <div class="d-flex">
       <div class="p-2">Year: xxxx</div>
       <div class="p-2">Hand: xxxx</div>
       <div class="p-2">Diary Num: xx</div>
     </div>
+    <!-- Second row -->
     <div class="d-flex">
-      <div class="p-2">Folio Num: xx</div>
+      <div class="p-2">Folio Num: {{ diary.page[page].folio_num }}</div>
       <div class="p-2">Location: xxxx</div>
     </div>
+    <!-- Third row -->
     <div class="d-flex">
       <div class="p-2">Transcription Status: xx</div>
       <div class="p-2">Transcriber : xxxx</div>
@@ -19,24 +25,29 @@
   </div>
 </div>
 
+<!-- Super search bar -->
 <div class="d-flex justify-content-center">
   <i class="fa fa-search" aria-hidden="true"></i>
   <input type="text" name="search" placeholder="Search..">
 </div>
 
+<!-- Pagination bar -->
 <div class="container">
     <ngb-pagination class="d-flex justify-content-center" [collectionSize]="100" [(page)]="page" [maxSize]="10" [pageSize]="1" [ellipses]="false"></ngb-pagination>
     <p>page = {{page}}</p>
 </div>
 
+<!-- Viewer boxes manuscript/transciption -->
 <div class="container">
   <div class="row justify-content-center">
+    <!-- Manuscript -->
     <div class="col-sm">
       <div class="viewer-box">
         left
         <img src="assets{{ diary.notebook_url }}{{ diary.page[page].image }}"/>
       </div>
     </div>
+    <!-- Transcription -->
     <div class="col-sm">
       <div class="viewer-box">
         <div [innerHTML]="diary.page[page].content"></div>
@@ -45,6 +56,7 @@
   </div>
 </div>
 
+<!-- Pagination bar (old) -->
 <div class="container">
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center pagination-sm">
