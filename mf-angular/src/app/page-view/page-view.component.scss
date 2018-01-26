@@ -1,9 +1,8 @@
 .viewer-box {
-  height: 800px;
+  height: 100%;
   background-color: rgb(255, 255, 255);
   border: 1px solid grey;
-  width: 540px;
-  min-width: 500px;
+  width: auto;
   overflow: hidden;
 }
 .viewer-box img {
@@ -23,9 +22,11 @@
   font-size: 10pt;
 }
 
-ngb-pagination {
-  color: black;
+ngb-pagination /deep/ .page-link {color: black;
   background-color: rgba(255,255,255,0);
+  color: black;
+  border: 0px;
+  font-size: 10pt;
 }
 
 input[type=text] {
