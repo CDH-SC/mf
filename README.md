@@ -19,7 +19,7 @@
 * ```cd <path>/mf```
   * ```cd mf-api/```
     * ```npm install```
-  * ```cd mf-webapp/```
+  * ```cd mf-angular/```
     * ```npm install```
 * Note: If the npm install throws an error:
   * If it says a module is not installed run ```npm install --save <module name>```
