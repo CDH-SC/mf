@@ -9,7 +9,7 @@
     <!-- First row -->
     <div class="d-flex">
       <div class="p-2">Year: {{ diary.date }}</div>
-      <div class="p-2">Hand: xxxx</div>
+      <div class="p-2">Hand: {{ diary.page[page].hand }}</div>
       <div class="p-2">Diary Num: {{ diary.volume_num }}</div>
     </div>
     <!-- Second row -->
@@ -20,7 +20,7 @@
     <!-- Third row -->
     <div class="d-flex">
       <div class="p-2">Transcription Status: xx</div>
-      <div class="p-2">Transcriber : xxxx</div>
+      <div class="p-2">Transcriber: {{ diary.page[page].transcriber }}</div>
     </div>
   </div>
 </div>

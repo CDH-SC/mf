@@ -15,6 +15,8 @@ var diarySchema = new Schema({
     folio_num: String,
     image: String,
     content: String,
+    transcriber: String,
+    hand: String,
   }],
 }, { _id: false });
 
