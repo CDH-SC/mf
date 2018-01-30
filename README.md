@@ -1,5 +1,6 @@
-# mf
+# Michael Field
 
+[![Build Status](http://dev-cdh.org:8080/job/michaelfield_docker/badge/icon)](http://dev-cdh.org:8080/job/michaelfield_docker/)
 ### Getting Started
 ---
 #### Prerequisites
