@@ -22,3 +22,9 @@ for filename in os.listdir(directory):
         #print content
         contentMatch = re.findall("<pb/>(.*?)(?=<pb/>)", content, re.DOTALL)
         print "found "+str(len(contentMatch))+" entries for the following notebook: "+filename
+
+        # it will loop through each entry inside contentMatch and pull out the associated metadata
+        for pageContent in contentMatch:
+            urlMatch = re.findall("http://(.*?).jpg", pageContent)
+            url = urlMatch[0]
+            print url
