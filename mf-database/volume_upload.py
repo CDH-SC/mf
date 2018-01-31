@@ -26,5 +26,11 @@ for filename in os.listdir(directory):
         # it will loop through each entry inside contentMatch and pull out the associated metadata
         for pageContent in contentMatch:
             urlMatch = re.findall("http://(.*?).jpg", pageContent)
+            handMatch = re.findall("\[(.*?)\]", pageContent)
+            metadataMatch = re.findall("(Notebook.*?)</hi>", pageContent, re.DOTALL)
             url = urlMatch[0]
+            print pageContent
             print url
+            print handMatch
+            print metadataMatch
+            print
