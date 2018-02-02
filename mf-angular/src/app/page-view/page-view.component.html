@@ -2,25 +2,25 @@
 <div class="container">
   <div class="row">
     <!-- Date + Folio num -->
-    <h5>{{ diary.date }}: {{ diary.page[page].folio_num }}</h5>
+    <h5>{{ diary.date }}: {{ diary.page[page-1].folio_num }}</h5>
   </div>
   <!-- Metadata -->
   <div class="metadata">
     <!-- First row -->
     <div class="d-flex">
       <div class="p-2">Year: {{ diary.date }}</div>
-      <div class="p-2">Hand: {{ diary.page[page].hand }}</div>
+      <div class="p-2">Hand: {{ diary.page[page-1].hand }}</div>
       <div class="p-2">Diary Num: {{ diary.volume_num }}</div>
     </div>
     <!-- Second row -->
     <div class="d-flex">
-      <div class="p-2">Folio Num: {{ diary.page[page].folio_num }}</div>
+      <div class="p-2">Folio Num: {{ diary.page[page-1].folio_num }}</div>
       <div class="p-2">Manuscript Num: Add MS {{ diary.ms_num }}</div>
     </div>
     <!-- Third row -->
     <div class="d-flex">
       <div class="p-2">Transcription Status: xx</div>
-      <div class="p-2">Transcriber: {{ diary.page[page].transcriber }}</div>
+      <div class="p-2">Transcriber: {{ diary.page[page-1].transcriber }}</div>
     </div>
   </div>
 </div>
@@ -34,12 +34,13 @@
 <!-- Pagination bar -->
 <div class="container">
   <ngb-pagination class="d-flex justify-content-center"
-    [collectionSize]="100"
+    [collectionSize]="totalPages"
     [(page)]="page"
     [maxSize]="10"
     [pageSize]="1"
     [ellipses]="false"
     size="sm"
+    [rotate]="true"
   ></ngb-pagination>
   <p>page = {{page}}</p>
 </div>
@@ -50,13 +51,13 @@
     <!-- Manuscript -->
     <div class="col-sm">
       <div class="viewer-box">
-        <img src="assets{{ diary.notebook_url }}{{ diary.page[page].image }}"/>
+        <img src="assets{{ diary.notebook_url }}{{ diary.page[page-1].image }}"/>
       </div>
     </div>
     <!-- Transcription -->
     <div class="col-sm">
       <div class="viewer-box">
-        <div [innerHTML]="diary.page[page].content"></div>
+        <div [innerHTML]="diary.page[page-1].content"></div>
       </div>
     </div>
   </div>
