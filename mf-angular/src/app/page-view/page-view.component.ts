@@ -15,6 +15,7 @@ export class PageViewComponent implements OnInit {
   // Default page
   page : Number;
   page = 1;
+  totalPages = 25;
 
   constructor(private http: HttpClient) { }
 
