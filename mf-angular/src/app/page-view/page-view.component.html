@@ -39,9 +39,8 @@
     [maxSize]="10"
     [pageSize]="1"
     [ellipses]="false"
-    size="sm"
+    size="md"
   ></ngb-pagination>
-  <p>page = {{page}}</p>
 </div>
 
 <!-- Viewer boxes manuscript/transciption -->
@@ -70,9 +69,42 @@
       [maxSize]="10"
       [pageSize]="1"
       [ellipses]="false"
-      size="sm"
+      size="md"
     ></ngb-pagination>
 </div>
+<p>page: {{page}}</p>
+
+<!-- Go To Page bar -->
+<!--
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <div class="input-group">
+        <form name="jumpTo" onsubmit="jump($event)">
+          <input type="number" min="1" max="{{diary.page.length}}" id="pgNum" placeholder="Page">
+          <input type="submit" value="Go" method="get">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <div class="input-group">
+          <input type="number" id="pgNum" class="form-control" placeholder="page" min="1" max="{{diary.page.length}}" #jump>
+          <span class="input-group-btn">
+            <!--<button class="btn btn-default" type="button" onclick="{{page}}=document.getElementById["pgNum"].value">Go-->
+            <button type="button" class="btn btn-default" (click)="onClick(jump.value)">Go</button>
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- Pagination bar (old) -->
 <!--

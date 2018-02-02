@@ -13,6 +13,7 @@ export class PageViewComponent implements OnInit {
 
   diary : String;
   // Default page
+  page : Number;
   page = 1;
 
   constructor(private http: HttpClient) { }
@@ -22,6 +23,27 @@ export class PageViewComponent implements OnInit {
       this.diary = data["data"];
       console.log(this.diary)
     })
+
+
   }
+
+  onClick(jump) {
+    jump.value;
+    var x = jump;
+    this.page = jump;
+    console.log(jump);
+  }
+
+   /*jump(event) {
+    var target = event.target;
+    var pgNum_id = target.attributes.id;
+    console.log(pgNum_id.value)
+    var x = document.getElementById["pgNum"].value;
+    if (x >= 1 && x <= {{diary.page.length}}) {
+      alert("Value is good");
+    } else {
+      alert("Value is not good");
+    }
+  }*/
 
 }
