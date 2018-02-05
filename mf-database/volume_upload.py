@@ -12,6 +12,18 @@ import os
 import sys
 import re
 from bs4 import BeautifulSoup
+from pymongo import MongoClient
+# pprint library is used to make the output look pretty
+from pprint import pprint
+#connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
+client = MongoClient('mongodb://localhost:27017/')
+mf_db = client.mf # db
+mf_collection = mf_db.diaries.find() # collection
+
+# Issue the serverStatus command and print the results to check server status
+#
+# serverStatusResult=db.command("serverStatus")
+# pprint(serverStatusResult)
 
 directory = "../mf-archive/"
 
@@ -32,13 +44,11 @@ for filename in os.listdir(directory):
             metaDataMatch = re.findall("(Notebook.*?)</p>", pageContent, re.DOTALL)
             metaDataMatch[0] = metaDataMatch[0].replace('\n', '') # removes new line characters
             metaDataMatch[0] = " ".join(metaDataMatch[0].split()) # removes duplicated whitespace
-            metaDataMatch[0] = re.split(';|,',metaDataMatch[0]) # split up string by delimeter
+            metaDataMatch[0] = re.split(';|,',metaDataMatch[0]) # split up string by delimeter ; or ,
             print pageContent
             print urlMatch
             print handMatch
-            print metaDataMatch[0]
-
-            meta_data = {} # initialize empty dictionary
+            #print metaDataMatch[0] # list of metadata
 
             for data in metaDataMatch[0]:
                 print data
