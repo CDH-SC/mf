@@ -1,5 +1,5 @@
 # Michael Field
-Live Version: http://dev-cdh.org/home
+Live Version: http://mf.dev-cdh.org/home
 ### Getting Started
 ---
 #### Prerequisites
