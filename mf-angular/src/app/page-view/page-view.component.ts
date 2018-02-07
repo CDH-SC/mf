@@ -13,7 +13,6 @@ export class PageViewComponent implements OnInit {
 
   diary : String;
   // Default page
-  page : Number;
   page = 1;
   totalPages = 25;
 
