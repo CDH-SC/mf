@@ -46,49 +46,54 @@ def main():
             content = file.read()
             #print content
             contentMatch = re.findall("<pb/>(.*?)(?=<pb/>)", content, re.DOTALL)
-            print "found "+str(len(contentMatch))+" entries for the following notebook: "+filename
+            print "found... "+str(len(contentMatch))+" entries for the following notebook: "+filename
+            print "processing... "+str(len(contentMatch))+" entries for the following notebook: "+filename
 
-            # it will loop through each entry inside contentMatch and pull out the associated metadata
-            for pageContent in contentMatch:
-                urlMatch = re.findall("http://(.*?).jpg", pageContent)
-                urlMatch = urlMatch[0]+".jpg" # append .jpg back onto urlMatch
-                handMatch = re.findall("\[(.*?)\]", pageContent)
-                metaDataMatch = re.findall("(Notebook.*?)</p>", pageContent, re.DOTALL)
-                metaDataMatch[0] = metaDataMatch[0].replace('\n', '') # removes new line characters
-                metaDataMatch[0] = " ".join(metaDataMatch[0].split()) # removes duplicated whitespace
-                metaDataMatch[0] = re.split(';|,',metaDataMatch[0]) # split up string by delimeter ; or ,
+            try:
+                # it will loop through each entry inside contentMatch and pull out the associated metadata
+                for pageContent in contentMatch:
+                    urlMatch = re.findall("http://(.*?).jpg", pageContent)
+                    urlMatch = urlMatch[0]+".jpg" # append .jpg back onto urlMatch
+                    handMatch = re.findall("\[(.*?)\]", pageContent)
+                    metaDataMatch = re.findall("(Notebook.*?)</p>", pageContent, re.DOTALL)
+                    metaDataMatch[0] = metaDataMatch[0].replace('\n', '') # removes new line characters
+                    metaDataMatch[0] = " ".join(metaDataMatch[0].split()) # removes duplicated whitespace
+                    metaDataMatch[0] = re.split(';|,',metaDataMatch[0]) # split up string by delimeter ; or ,
 
-                if handMatch: # check if list is not empty, because apparently we have instances with no hand ?
-                hand = handMatch[0]
+                    if handMatch: # check if list is not empty, because apparently we have instances with no hand ?
+                        hand = handMatch[0]
 
-                #
-                # Note: in some cases below I take the zero index because the value is stored in a list ['value']
-                #       and I do not want to store a list within the dictionary
-                #
-                pageNum = int(filter(str.isdigit, metaDataMatch[0][1]))
-                lastIndexMetaData = len(metaDataMatch[0])-1 # last index of metaData which should be the transcriber
-                transcriber = re.findall("(.*?)(?=<)", metaDataMatch[0][lastIndexMetaData], re.DOTALL)[0]
-                imageUrl = re.split('/',urlMatch)[-1:][0] # split url matches by / and  take last element which should be image name
-                folioNum = re.split(' ', metaDataMatch[0][4])[-1:][0] # split 4th index of metaData by spaces which should be folio number,
-                # then take last index e.g. ['fol.','121v']
-                pageArray.append({"number":pageNum,
-                "folio_num": folioNum,
-                "image": imageUrl,
-                "content":pageContent,
-                "transcriber": transcriber,
-                "hand": hand})
+                    #
+                    # Note: in some cases below I take the zero index because the value is stored in a list ['value']
+                    #       and I do not want to store a list within the dictionary
+                    #
+                    pageNum = int(filter(str.isdigit, metaDataMatch[0][1]))
+                    lastIndexMetaData = len(metaDataMatch[0])-1 # last index of metaData which should be the transcriber
+                    transcriber = re.findall("(.*?)(?=<)", metaDataMatch[0][lastIndexMetaData], re.DOTALL)[0]
+                    imageUrl = re.split('/',urlMatch)[-1:][0] # split url matches by / and  take last element which should be image name
+                    folioNum = re.split(' ', metaDataMatch[0][4])[-1:][0] # split 4th index of metaData by spaces which should be folio number,
+                    # then take last index e.g. ['fol.','121v']
+                    pageArray.append({"number":pageNum,
+                    "folio_num": folioNum,
+                    "image": imageUrl,
+                    "content":pageContent,
+                    "transcriber": transcriber,
+                    "hand": hand})
 
-                upload_volume(pageArray)
-                
-                '''
-                print pageContent
-                print urlMatch
-                print handMatch
-                print pageNum
-                for data in metaDataMatch[0]:
-                    print data
-                print
+                    upload_volume(pageArray)
+
                     '''
+                    print pageContent
+                    print urlMatch
+                    print handMatch
+                    print pageNum
+                    for data in metaDataMatch[0]:
+                        print data
+                        print
+                        '''
+                print "Records updated successfull\n"
+            except Excception, e:
+                print str(e)
 
 if __name__ == '__main__':
     main()
