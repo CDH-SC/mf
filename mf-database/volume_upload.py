@@ -2,8 +2,11 @@
 
 # Volume Upload Script
 #
+# @author Lawton C Mizell
+# Contact: alcamech@gmail.com
+#
 # This is a volume upload script that will loop through the ../mf-archive/ directory
-# and its tei.xml files. It will automate the upload notebook process by pulling the
+# and its TEI XML files. It will automate the notebook upload process by pulling the
 # appropiate diary entries enclosed by <pb/> tags.
 #
 # It uses regex, file operations, and some filtering.
@@ -13,31 +16,43 @@
 import os
 import sys
 import re
-from bs4 import BeautifulSoup
 from pymongo import MongoClient
-# pprint library is used to make the output look pretty
-from pprint import pprint
+from datetime import datetime # measure the speed of script
+from pprint import pprint # pprint library is used to make the output look pretty
+
+startTime = datetime.now()
+directory = "../mf-archive/"
+pageArray = []
+
 #connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient('mongodb://localhost:27017/')
 mf_db = client.mf # db
-mf_collection = mf_db.diaries.find() # collection
 
 # Issue the serverStatus command and print the results to check server status
+# uncomment two lines below
 #
 # serverStatusResult=db.command("serverStatus")
 # pprint(serverStatusResult)
 
-directory = "../mf-archive/"
-pageArray = []
+#############################
+# Uploads the processed     #
+# pages from a TEI XML file #
+# into mongodb.             #
+#############################
 def upload_volume(pageArray):
     mf_db.diaries.update_one(
-    {"_id":1},
+    {"_id":18},
     {
     "$set": {
     "page":pageArray,
      }
     })
 
+###################################
+# iterates through a TEI XML file #
+# and parses associated data for  #
+# each page.                      #
+###################################
 def main():
     # loop through files in ../mf-archive directory
     for filename in os.listdir(directory):
@@ -45,7 +60,7 @@ def main():
             file = open(os.path.join(directory, filename), "r")
             content = file.read()
             #print content
-            contentMatch = re.findall("<pb/>(.*?)(?=<pb/>)", content, re.DOTALL)
+            contentMatch = re.findall("<pb/>(.*?)(?=<pb/>)", content, re.DOTALL) # each page is contained within two <pb/> tags
             print "found... "+str(len(contentMatch))+" entries for the following notebook: "+filename
             print "processing... "+str(len(contentMatch))+" entries for the following notebook: "+filename
 
@@ -72,7 +87,7 @@ def main():
                     transcriber = re.findall("(.*?)(?=<)", metaDataMatch[0][lastIndexMetaData], re.DOTALL)[0]
                     imageUrl = re.split('/',urlMatch)[-1:][0] # split url matches by / and  take last element which should be image name
                     folioNum = re.split(' ', metaDataMatch[0][4])[-1:][0] # split 4th index of metaData by spaces which should be folio number,
-                    # then take last index e.g. ['fol.','121v']
+                                                                          # then take last index of list e.g. ['fol.','121v']
                     pageArray.append({"number":pageNum,
                     "folio_num": folioNum,
                     "image": imageUrl,
@@ -80,20 +95,32 @@ def main():
                     "transcriber": transcriber,
                     "hand": hand})
 
-                    upload_volume(pageArray)
+                    upload_volume(pageArray) # uploads the pages to mongodb
 
+                    # remove the block comment below to output data for debugging purposes
                     '''
+                    print transcriber
+                    print imageUrl
+                    print folioNum
+                    print hand
                     print pageContent
                     print urlMatch
                     print handMatch
                     print pageNum
                     for data in metaDataMatch[0]:
                         print data
-                        print
-                        '''
-                print "Records updated successfull\n"
-            except Excception, e:
-                print str(e)
+                    print
+                    '''
 
+                print "Records updated successfully!\n"
+            except Excception, e:
+                print str(e, "Records updated unsuccessfully!\n")
+
+###################################
+# calls the main function and     #
+# prints the time it took to      #
+# process a notebook              #
+###################################
 if __name__ == '__main__':
     main()
+    print datetime.now() - startTime
