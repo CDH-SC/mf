@@ -32,7 +32,7 @@ mf_db = client.mf # db
 # uncomment two lines below
 #
 # serverStatusResult=db.command("serverStatus")
-# pprint(serverStatusResult)s
+# pprint(serverStatusResult)
 
 #############################
 # Uploads the processed     #
