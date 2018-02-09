@@ -73,7 +73,6 @@
       size="sm"
     ></ngb-pagination>
 </div>
-<p>page: {{page}}</p>
 
 <!-- Go To Page bar -->
 <!--
@@ -95,7 +94,7 @@
   <div class="row justify-content-center">
     <div class="col-sm-4">
       <div class="input-group">
-          <input type="number" id="pgNum" class="form-control" placeholder="page" min="1" max="{{diary.page.length}}" #jump>
+          <input type="text" id="folioNum" class="form-control" placeholder="page" #jump>
           <span class="input-group-btn">
             <!--<button class="btn btn-default" type="button" onclick="{{page}}=document.getElementById["pgNum"].value">Go-->
             <button type="button" class="btn btn-default" (click)="onClick(jump.value)">Go</button>

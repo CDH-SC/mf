@@ -14,6 +14,7 @@ export class PageViewComponent implements OnInit {
   diary : String;
   // Default page
   page : Number;
+  folio_num: String;
   page = 1;
   totalPages = 25;
 
@@ -24,27 +25,38 @@ export class PageViewComponent implements OnInit {
       this.diary = data["data"];
       console.log(this.diary)
     })
-
-
   }
 
   onClick(jump) {
     jump.value;
     var x = jump;
-    this.page = jump;
-    console.log(jump);
-  }
+    var pgNum = 0;
+    this.folio_num = jump;
 
-   /*jump(event) {
-    var target = event.target;
-    var pgNum_id = target.attributes.id;
-    console.log(pgNum_id.value)
-    var x = document.getElementById["pgNum"].value;
-    if (x >= 1 && x <= {{diary.page.length}}) {
-      alert("Value is good");
+    //Checking index of V or R and slicing string to extract pgNum
+    if(jump.indexOf('v') == 1 || jump.indexOf('r') == 1) {
+      pgNum = parseInt(jump.slice(0,1));
+    } else if(jump.indexOf('v') == 2 || jump.indexOf('r') == 2) {
+      pgNum = parseInt(jump.slice(0,2));
     } else {
-      alert("Value is not good");
+      alert("Please insert a valid folio number. In format <Num><r/v>");
     }
-  }*/
+
+    if(jump.includes('v') && pgNum > 2){
+      pgNum = pgNum + 2;
+    } else if(jump.includes('r') && pgNum > 2){
+      pgNum = pgNum + 1;
+    } else if(jump.includes('v') && pgNum == 2){
+      pgNum = pgNum + 1;
+    } else if(jump.includes('r') && pgNum == 2){
+      pgNum = pgNum;
+    } else {
+      pgNum = 1;
+    }
+
+    console.log(jump);
+    console.log(pgNum);
+    this.page = pgNum;
+  }
 
 }
