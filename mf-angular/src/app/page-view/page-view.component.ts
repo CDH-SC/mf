@@ -42,16 +42,10 @@ export class PageViewComponent implements OnInit {
       alert("Please insert a valid folio number. In format <Num><r/v>");
     }
 
-    if(jump.includes('v') && pgNum > 2){
-      pgNum = pgNum + 2;
-    } else if(jump.includes('r') && pgNum > 2){
-      pgNum = pgNum + 1;
-    } else if(jump.includes('v') && pgNum == 2){
-      pgNum = pgNum + 1;
-    } else if(jump.includes('r') && pgNum == 2){
-      pgNum = pgNum;
-    } else {
-      pgNum = 1;
+    if(jump.includes('v')) {
+      pgNum = pgNum*2;
+    } else if(jump.includes('r')) {
+      pgNum = (pgNum*2) - 1;
     }
 
     console.log(jump);
