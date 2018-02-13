@@ -44,6 +44,10 @@ input[type=text] {
    padding: 2px;
 }
 
+input[type=text]::placeholder {
+  color: white;
+}
+
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
    width: 90%;
