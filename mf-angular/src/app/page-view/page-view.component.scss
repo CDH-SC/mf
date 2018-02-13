@@ -5,6 +5,8 @@
   width: auto;
   overflow: hidden;
 }
+
+
 .viewer-box img {
   display: block;
   width: 100%;
@@ -33,18 +35,47 @@ input[type=text] {
    width: 500px;
    -webkit-transition: width 0.4s ease-in-out;
    transition: width 0.4s ease-in-out;
-   font: 12px bold;
-   color: #969faa;
+   font: 15px bold;
+   color: white;
    background: #343f4b 0 0;
    text-align: left;
    margin: 0 0 15px 0;
    border: 1px solid #8492a6;
    border-radius: 5px;
-   height: 20px;
+   height: 25px;
    padding: 2px;
+}
+
+input[type=text]::placeholder {
+  color: white;
 }
 
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
    width: 90%;
+}
+
+#folioNum {
+  width: 25%;
+}
+
+#jumpBtn {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+}
+
+#folio-group {
+  a:link {
+    color: black !important;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
 }

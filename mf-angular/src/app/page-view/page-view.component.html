@@ -74,7 +74,6 @@
     [rotate]="true"
   ></ngb-pagination>
 </div>
-<p>page: {{page}}</p>
 
 <!-- Go To Page bar -->
 <!--
@@ -96,29 +95,31 @@
   <div class="row justify-content-center">
     <div class="col-sm-4">
       <div class="input-group">
-          <input type="number" id="pgNum" class="form-control" placeholder="page" min="1" max="{{diary.page.length}}" #jump>
+          <input type="text" id="folioNum" class="form-control" placeholder="Go to Folio..." #jump>
           <span class="input-group-btn">
-            <!--<button class="btn btn-default" type="button" onclick="{{page}}=document.getElementById["pgNum"].value">Go-->
-            <button type="button" class="btn btn-default" (click)="onClick(jump.value)">Go</button>
+            <button id="jumpBtn" type="button" class="btn btn-default" (click)="onClick(jump.value)"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
           </span>
       </div>
     </div>
   </div>
 </div>
 
-<!--
-<div class="container">
-  <ul class="list-inline">
-    <li id="g1" #g1><a href="javascript:onClick(1)">1-5</a></li>
-    <li id="g2" #g2><a href="javascript:onClick(6)">6-10</a></li>
-    <li id="g3" #g3><a href="javascript:onClick(11)">11-15</a></li>
-    <li id="g4" #g4><a href="javascript:onClick(16)">16-20</a></li>
-    <li id="g5" #g5><a href="javascript:onClick(21)">21-25</a></li>
-  </ul>
+<div class="container" id="folio-group">
+  <div class="row justify-content-center">
+    <div class="col-md-1"><a href="#">Cover</a></div>
+    <div class="col-md-1"><a href="#">21r</a></div>
+    <div class="col-md-1"><a href="#">41r</a></div>
+    <div class="col-md-1"><a href="#">61r</a></div>
+    <div class="col-md-1"><a href="#">81r</a></div>
+    <div class="col-md-1"><a href="#">101r</a></div>
+    <div class="col-md-1"><a href="#">121r</a></div>
+    <div class="col-md-1"><a href="#">141r</a></div>
+    <div class="col-md-1"><a href="#">161r</a></div>
+    <div class="col-md-1"><a href="#">181r</a></div>
+    <div class="col-md-1"><a href="#">201r</a></div>
+    <div class="col-md-1"><a href="#">221r</a></div>
+  </div>
 </div>
--->
-
-
 
 <!-- Pagination bar (old) -->
 <!--
