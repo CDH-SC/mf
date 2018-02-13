@@ -19,14 +19,7 @@ export class VolumeLinksComponent implements OnInit {
   ngOnInit() {
     this.http.get('/api/diaries').subscribe(data => {
       this.diary = data["data"]["docs"];
-      console.log(this.diary);
     })
-  }
-
-  onClick(event) {
-    var target = event.target
-    var notebook_id = target.attributes.id;
-    console.log(notebook_id.value);
   }
 
 }

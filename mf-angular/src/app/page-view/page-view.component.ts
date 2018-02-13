@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -18,12 +20,16 @@ export class PageViewComponent implements OnInit {
   page = 1;
   totalPages = 25;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private location: Location,
+  ) { }
 
   ngOnInit() {
-    this.http.get('/api/diaries/18').subscribe(data => {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.http.get('/api/diaries/'+id).subscribe(data => {
       this.diary = data["data"];
-      console.log(this.diary)
     })
   }
 
@@ -52,5 +58,4 @@ export class PageViewComponent implements OnInit {
     console.log(pgNum);
     this.page = pgNum;
   }
-
 }

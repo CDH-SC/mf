@@ -34,7 +34,7 @@
 <!-- Pagination bar -->
 <div class="container">
   <ngb-pagination class="d-flex justify-content-center"
-    [collectionSize]="totalPages"
+    [collectionSize]="diary.page.length"
     [(page)]="page"
     [maxSize]="10"
     [pageSize]="1"
@@ -64,14 +64,15 @@
 
 <!-- Pagination bar -->
 <div class="container">
-    <ngb-pagination class="d-flex justify-content-center"
-      [collectionSize]="100"
-      [(page)]="page"
-      [maxSize]="10"
-      [pageSize]="1"
-      [ellipses]="false"
-      size="sm"
-    ></ngb-pagination>
+  <ngb-pagination class="d-flex justify-content-center"
+    [collectionSize]="diary.page.length"
+    [(page)]="page"
+    [maxSize]="10"
+    [pageSize]="1"
+    [ellipses]="false"
+    size="sm"
+    [rotate]="true"
+  ></ngb-pagination>
 </div>
 
 <!-- Go To Page bar -->
