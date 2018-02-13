@@ -96,7 +96,6 @@
       <div class="input-group">
           <input type="text" id="folioNum" class="form-control" placeholder="Go to Folio..." #jump>
           <span class="input-group-btn">
-            <!--<button class="btn btn-default" type="button" onclick="{{page}}=document.getElementById["pgNum"].value">Go-->
             <button id="jumpBtn" type="button" class="btn btn-default" (click)="onClick(jump.value)"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
           </span>
       </div>
@@ -104,7 +103,22 @@
   </div>
 </div>
 
-
+<div class="container" id="folio-group">
+  <div class="row justify-content-center">
+    <div class="col-md-1"><a href="#">Cover</a></div>
+    <div class="col-md-1"><a href="#">21r</a></div>
+    <div class="col-md-1"><a href="#">41r</a></div>
+    <div class="col-md-1"><a href="#">61r</a></div>
+    <div class="col-md-1"><a href="#">81r</a></div>
+    <div class="col-md-1"><a href="#">101r</a></div>
+    <div class="col-md-1"><a href="#">121r</a></div>
+    <div class="col-md-1"><a href="#">141r</a></div>
+    <div class="col-md-1"><a href="#">161r</a></div>
+    <div class="col-md-1"><a href="#">181r</a></div>
+    <div class="col-md-1"><a href="#">201r</a></div>
+    <div class="col-md-1"><a href="#">221r</a></div>
+  </div>
+</div>
 
 <!-- Pagination bar (old) -->
 <!--
