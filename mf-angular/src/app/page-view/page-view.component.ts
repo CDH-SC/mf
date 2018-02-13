@@ -15,10 +15,8 @@ export class PageViewComponent implements OnInit {
 
   diary : String;
   // Default page
-  page : Number;
   folio_num: String;
   page = 1;
-  totalPages = 25;
 
   constructor(
     private http: HttpClient,
