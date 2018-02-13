@@ -33,18 +33,28 @@ input[type=text] {
    width: 500px;
    -webkit-transition: width 0.4s ease-in-out;
    transition: width 0.4s ease-in-out;
-   font: 12px bold;
-   color: #969faa;
+   font: 15px bold;
+   color: white;
    background: #343f4b 0 0;
    text-align: left;
    margin: 0 0 15px 0;
    border: 1px solid #8492a6;
    border-radius: 5px;
-   height: 20px;
+   height: 25px;
    padding: 2px;
 }
 
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
    width: 90%;
+}
+
+#folioNum {
+  width: 25%;
+}
+
+#jumpBtn {
+  width: 25px;
+  height: 25px;
+  padding: 0;
 }

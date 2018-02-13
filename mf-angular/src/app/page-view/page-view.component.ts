@@ -39,7 +39,7 @@ export class PageViewComponent implements OnInit {
     } else if(jump.indexOf('v') == 2 || jump.indexOf('r') == 2) {
       pgNum = parseInt(jump.slice(0,2));
     } else {
-      alert("Please insert a valid folio number. In format <Num><r/v>");
+      alert("Please insert a valid folio number.\nIn format <Num><r/v>\nExample: 25v or 54r");
     }
 
     if(jump.includes('v')) {
