@@ -16,7 +16,6 @@ export class PageViewComponent implements OnInit {
   diary : String;
   // Default page
   page = 1;
-  totalPages = 400;
 
   constructor(
     private http: HttpClient,
