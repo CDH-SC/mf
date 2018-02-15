@@ -56,4 +56,5 @@ export class PageViewComponent implements OnInit {
     console.log(pgNum);
     this.page = pgNum;
   }
+
 }
