@@ -8,22 +8,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/mf', { useMongoClient: true})
 .catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/mf`)})
 var conn = mongoose.connection;
 
-var base = 'Add_ms_46785_00';
-var page = [];
-for (i=1; i < 10; i++) {
-  page.push(base+String(i)+".jpg");
-}
-
-base = 'Add_ms_46785_0';
-for(i=10; i < 100; i++) {
-  page.push(base+String(i)+".jpg");
-}
-
-base = 'Add_ms_46785_';
-for(i=100; i <= 427; i++) {
-  page.push(base+String(i)+".jpg");
-}
-
 var newDiary = new Diary({
   _id: 10,
   date: "1896",
@@ -31,10 +15,34 @@ var newDiary = new Diary({
   volume_num: "X",
   ms_num: 46785,
   page: [{
-    _id: false,
-    image: page,
+    image: undefined,
+     _id: false,
   }],
 })
 
 conn.collection('diaries').insert(newDiary);
+
+var base = 'Add_ms_46785-00';
+var pageArray = [];
+for (i=1; i < 10; i++) {
+  pageArray.push(base+String(i)+".jpg");
+}
+
+base = 'Add_ms_46785-0';
+for(i=10; i < 100; i++) {
+  pageArray.push(base+String(i)+".jpg");
+}
+
+base = 'Add_ms_46785-';
+for(i=100; i <= 427; i++) {
+  pageArray.push(base+String(i)+".jpg");
+}
+for(int i=0; i<pageArray.length;i++) {
+  conn.collection('diaries').insert(
+    { _id: 10 },
+    { $set: { page: { $each: { "image":pageArray }}}
+  )
+}
+
+
 //mongoose.insert(newDiary);
