@@ -42,6 +42,8 @@ export class PageViewComponent implements OnInit {
       pgNum = parseInt(jump.slice(0,1));
     } else if(jump.indexOf('v') == 2 || jump.indexOf('r') == 2) {
       pgNum = parseInt(jump.slice(0,2));
+    } else if(jump.indexOf('v') == 3 || jump.indexOf('r') == 3) {
+      pgNum = parseInt(jump.slice(0,3));
     } else {
       alert("Please insert a valid folio number.\nIn format <Num><r/v>\nExample: 25v or 54r");
     }
@@ -56,4 +58,9 @@ export class PageViewComponent implements OnInit {
     console.log(pgNum);
     this.page = pgNum;
   }
+
+  group(num) {
+    this.page = num;
+  }
+
 }
