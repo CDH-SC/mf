@@ -63,6 +63,9 @@ Live Version: http://mf.dev-cdh.org/home
 ### Unit Tests
 ---
 * Run ```ng test``` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* To execute unit tests for Angular
+  * ```cd <path>/mf/mf-angular/```
+  * ```npm test ``` which runs the tests found in the directory ```<path>/mf/mf-angular/spec/```
 
 ### Built With
 * [Angular4](https://angular.io/)
