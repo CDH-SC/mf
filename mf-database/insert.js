@@ -1,5 +1,5 @@
 //Get mongoose model
-var Diary = require('./models/diary.model')
+var Diary = require('../mf-api/models/diary.model')
 var bluebird = require('bluebird')
 var mongoose = require('mongoose')
 mongoose.Promise = bluebird
@@ -25,7 +25,7 @@ for(i=100; i <= 488; i++) {
 }
 
 var newDiary = new Diary({
-  volume_id: 18,
+  volume_id: 27,
   date: "1904",
   volumeURL: "/images/notebook_18/",
   page: page,
