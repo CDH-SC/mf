@@ -14,10 +14,7 @@ var newDiary = new Diary({
   notebook_url: "/images/notebook_10/",
   volume_num: "X",
   ms_num: 46785,
-  page: [{
-    image: undefined,
-     _id: false,
-  }],
+  page: [],
 })
 
 conn.collection('diaries').insert(newDiary);
@@ -25,24 +22,22 @@ conn.collection('diaries').insert(newDiary);
 var base = 'Add_ms_46785-00';
 var pageArray = [];
 for (i=1; i < 10; i++) {
-  pageArray.push(base+String(i)+".jpg");
+  pageArray.push({image: base+String(i)+".jpg"});
 }
 
 base = 'Add_ms_46785-0';
 for(i=10; i < 100; i++) {
-  pageArray.push(base+String(i)+".jpg");
+  pageArray.push({image: base+String(i)+".jpg"});
 }
 
 base = 'Add_ms_46785-';
 for(i=100; i <= 427; i++) {
-  pageArray.push(base+String(i)+".jpg");
-}
-for(int i=0; i<pageArray.length;i++) {
-  conn.collection('diaries').insert(
-    { _id: 10 },
-    { $set: { page: { $each: { "image":pageArray }}}
-  )
+  pageArray.push({image: base+String(i)+".jpg"});
 }
 
+conn.collection('diaries').update(
+  { _id: 10 },
+  { $push: { "page": { $each: pageArray}}}
+)
 
 //mongoose.insert(newDiary);
