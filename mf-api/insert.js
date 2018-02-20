@@ -9,34 +9,34 @@ mongoose.connect('mongodb://127.0.0.1:27017/mf', { useMongoClient: true})
 var conn = mongoose.connection;
 
 var newDiary = new Diary({
-  _id: 10,
-  date: "1896",
-  notebook_url: "/images/notebook_10/",
-  volume_num: "X",
-  ms_num: 46785,
+  _id: 23,
+  date: "1908",
+  notebook_url: "/images/notebook_23/",
+  volume_num: "XXIII",
+  ms_num: 46798,
   page: [],
 })
 
 conn.collection('diaries').insert(newDiary);
 
-var base = 'Add_ms_46785-00';
+var base = 'add_ms_46798-00';
 var pageArray = [];
 for (i=1; i < 10; i++) {
   pageArray.push({image: base+String(i)+".jpg"});
 }
 
-base = 'Add_ms_46785-0';
+base = 'add_ms_46798-0';
 for(i=10; i < 100; i++) {
   pageArray.push({image: base+String(i)+".jpg"});
 }
 
-base = 'Add_ms_46785-';
-for(i=100; i <= 427; i++) {
+base = 'add_ms_46798-';
+for(i=100; i <= 460; i++) {
   pageArray.push({image: base+String(i)+".jpg"});
 }
 
 conn.collection('diaries').update(
-  { _id: 10 },
+  { _id: 23 },
   { $push: { "page": { $each: pageArray}}}
 )
 
