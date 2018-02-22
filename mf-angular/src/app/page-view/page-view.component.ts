@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/map'
+import { Diary } from '../_shared/models/diary';
 
 @Component({
   selector: 'app-page-view',
@@ -13,7 +14,8 @@ import 'rxjs/add/operator/map'
 })
 export class PageViewComponent implements OnInit {
 
-  diary : String;
+  diary : Diary;
+
   // Default page
   folio_num: String;
   page = 1;
