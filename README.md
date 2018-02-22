@@ -100,12 +100,13 @@ Note: Be sure to merge the latest from "upstream" before making a pull request!:
 
 ### Versioning
 
-### Authors
+### Contributors
 * **Pierce Matthews**
 * **Tyler Moon**
 * **Lawton Mizell**
 * **Jerrod Mathis**
 * **Caleb Kitzmann**
+* **Samyu Comandur**
 
 ### License
 MIT
