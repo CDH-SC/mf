@@ -66,6 +66,14 @@ Live Version: http://mf.dev-cdh.org/home
 * To execute unit tests for Angular
   * ```cd <path>/mf/mf-angular/```
   * ```npm test ``` which runs the tests found in the directory ```<path>/mf/mf-angular/spec/```
+  
+## Creating Documentation
+* Install compdoc package
+  * ```npm i -g @compodoc/compodoc```
+* Create the documentation for Angular
+  * ```cd <path>/mf/mf-angular/```
+  * ```npm run doc:buildandserve```
+  * ```Open broswer at http://localhost:8080```
 
 ### Built With
 * [Angular4](https://angular.io/)
