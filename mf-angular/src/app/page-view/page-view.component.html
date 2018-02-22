@@ -117,12 +117,22 @@
   </div>
 </div>
 
+<!--
 <div class="container">
   <div class="row justify-content-center">
-    <div *ngFor="let p of diary.page" class="col-md-1">
-      {{p.folio_num}}
+    <div  class="col-md-1" *ngFor="let p of diary.page; let i = index">
+      <a *ngIf="i%20==0">{{p.folio_num}}</a>
     </div>
   </div>
+</div>
+-->
+
+<div class="container" id="folio-group">
+  <ul *ngFor="let p of diary.page; let i = index">
+    <li>
+      <a *ngIf="i%20==0" (click)="goToGroup(i)">{{p.folio_num}}</a>
+    </li>
+  </ul>
 </div>
 
 
