@@ -15,6 +15,7 @@ import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component
 import { HomeComponent } from './home/home.component';
 import { PageViewComponent } from './page-view/page-view.component';
 import { VolumeLinksComponent } from './volume-links/volume-links.component';
+import { PaginationComponent } from './_shared/pagination/pagination.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,7 +35,8 @@ const routes: Routes = [
     NavBarComponent,
     HomeComponent,
     PageViewComponent,
-    VolumeLinksComponent
+    VolumeLinksComponent,
+    PaginationComponent
   ],
   imports: [
     HttpClientModule,
