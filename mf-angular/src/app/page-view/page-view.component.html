@@ -1,4 +1,5 @@
 <!-- Title + Metadata -->
+
 <div *ngIf="diary">
   <div class="container">
     <div class="row">
@@ -45,17 +46,26 @@
     </div>
   </div>
 
-  <!-- Pagination bar -->
-  <div class="container">
-    <ngb-pagination class="d-flex justify-content-center"
-    [collectionSize]="diary.page.length"
-    [(page)]="page"
-    [maxSize]="10"
-    [pageSize]="1"
-    [ellipses]="false"
-    size="sm"
-    [rotate]="true"
-    ></ngb-pagination>
+  <!-- Pagination bar for Folio Num -->
+  <div class="container d-flex justify-content-center">
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{ diary.page[page-1].folio_num }}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
   </div>
 
   <!-- Viewer boxes manuscript/transciption -->
@@ -74,19 +84,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Pagination bar -->
-  <div class="container">
-    <ngb-pagination class="d-flex justify-content-center"
-    [collectionSize]="diary.page.length"
-    [(page)]="page"
-    [maxSize]="10"
-    [pageSize]="1"
-    [ellipses]="false"
-    size="sm"
-    [rotate]="true"
-    ></ngb-pagination>
   </div>
 
   <!-- Go To Page bar -->
