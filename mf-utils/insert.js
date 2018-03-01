@@ -8,21 +8,24 @@
 */
 
 //Get mongoose model
-var Diary = require('./models/diary.model')
+var Diary = require('../mf-api/models/diary.model')
 var bluebird = require('bluebird')
 var mongoose = require('mongoose')
 mongoose.Promise = bluebird
-mongoose.connect('mongodb://127.0.0.1:27017/mf', { useMongoClient: true})
+mongoose.connect('mongodb://127.0.0.1:27017/mf')
 .then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/mf`)})
 .catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/mf`)})
 var conn = mongoose.connection;
 
 //Change these variables to match diary being added
-var _id = 5;
-var date = "1892";
-var volume_num = "V";
-var ms_num = 46780;
-var num_pages = 340;
+var _id = 24;
+var date = "1909";
+var volume_num = "XXIV";
+var ms_num = 46799;
+var num_pages = 416;
+var root = `Add_ms_${ms_num}-0`;
+
+console.log(_id);
 
 var newDiary = new Diary({
   _id: _id,
@@ -35,18 +38,18 @@ var newDiary = new Diary({
 
 conn.collection('diaries').insert(newDiary);
 
-var base = `Add_ms_${ms_num}_00`;
+base = root+"00";
 var pageArray = [];
 for (i=1; i < 10; i++) {
   pageArray.push({image: base+String(i)+".jpg"});
 }
 
-base = `Add_ms_${ms_num}_0`;
+base = root+"0";
 for(i=10; i < 100; i++) {
   pageArray.push({image: base+String(i)+".jpg"});
 }
 
-base = `Add_ms_${ms_num}_`;
+base = root;
 for(i=100; i <= num_pages; i++) {
   pageArray.push({image: base+String(i)+".jpg"});
 }
@@ -55,5 +58,4 @@ conn.collection('diaries').update(
   { _id: _id },
   { $push: { "page": { $each: pageArray}}}
 )
-
 //mongoose.insert(newDiary);
