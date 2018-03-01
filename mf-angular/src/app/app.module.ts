@@ -15,6 +15,7 @@ import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component
 import { HomeComponent } from './home/home.component';
 import { PageViewComponent } from './page-view/page-view.component';
 import { VolumeLinksComponent } from './volume-links/volume-links.component';
+import { PagerService } from './_shared/_services/pager.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,7 +35,7 @@ const routes: Routes = [
     NavBarComponent,
     HomeComponent,
     PageViewComponent,
-    VolumeLinksComponent
+    VolumeLinksComponent,
   ],
   imports: [
     HttpClientModule,
@@ -44,7 +45,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-
+    PagerService,
   ],
   bootstrap: [AppComponent]
 })

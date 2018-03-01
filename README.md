@@ -60,9 +60,20 @@ Live Version: http://mf.dev-cdh.org/home
   * ```ng build --watch```
 * The Michael Field application should now be available at http://localhost:3000/home
 
+### Creating Documentation
+* Install compdoc package
+  * ```npm i -g @compodoc/compodoc```
+* Create the documentation for Angular
+  * ```cd <path>/mf/mf-angular/```
+  * ```npm run doc:buildandserve```
+  * ```Open broswer at http://localhost:8080```
+
 ### Unit Tests
 ---
 * Run ```ng test``` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* To execute unit tests for Angular
+  * ```cd <path>/mf/mf-angular/```
+  * ```npm test ``` which runs the tests found in the directory ```<path>/mf/mf-angular/spec/```
 
 ### Built With
 * [Angular4](https://angular.io/)
@@ -89,12 +100,13 @@ Note: Be sure to merge the latest from "upstream" before making a pull request!:
 
 ### Versioning
 
-### Authors
+### Contributors
 * **Pierce Matthews**
 * **Tyler Moon**
 * **Lawton Mizell**
 * **Jerrod Mathis**
 * **Caleb Kitzmann**
+* **Samyu Comandur**
 
 ### License
 MIT
