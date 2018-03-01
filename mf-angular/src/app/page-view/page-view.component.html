@@ -1,4 +1,5 @@
 <!-- Title + Metadata -->
+
 <div *ngIf="diary">
   <div class="container">
     <div class="row">
@@ -45,17 +46,26 @@
     </div>
   </div>
 
-  <!-- Pagination bar -->
-  <div class="container">
-    <ngb-pagination class="d-flex justify-content-center"
-    [collectionSize]="diary.page.length"
-    [(page)]="page"
-    [maxSize]="10"
-    [pageSize]="1"
-    [ellipses]="false"
-    size="sm"
-    [rotate]="true"
-    ></ngb-pagination>
+  <!-- Pagination bar for Folio Num -->
+  <div class="container d-flex justify-content-center">
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{ diary.page[page-1].folio_num }}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
   </div>
 
   <!-- Viewer boxes manuscript/transciption -->
@@ -74,19 +84,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Pagination bar -->
-  <div class="container">
-    <ngb-pagination class="d-flex justify-content-center"
-    [collectionSize]="diary.page.length"
-    [(page)]="page"
-    [maxSize]="10"
-    [pageSize]="1"
-    [ellipses]="false"
-    size="sm"
-    [rotate]="true"
-    ></ngb-pagination>
   </div>
 
   <!-- Go To Page bar -->
@@ -118,22 +115,22 @@
   </div>
 </div>
 
-<div class="container" id="folio-group">
+<!--
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-1" (click)="group(1)"><a>Cover</a></div>
-    <div class="col-md-1" (click)="group(39)"><a>21r</a></div>
-    <div class="col-md-1" (click)="group(79)"><a>41r</a></div>
-    <div class="col-md-1" (click)="group(119)"><a>61r</a></div>
-    <div class="col-md-1" (click)="group(159)"><a>81r</a></div>
-    <div class="col-md-1" (click)="group(199)"><a>101r</a></div>
-    <div class="col-md-1" (click)="group(239)"><a>121r</a></div>
-    <div class="col-md-1">141r</div>
-    <div class="col-md-1">161r</div>
-    <div class="col-md-1">181r</div>
-    <div class="col-md-1">201r</div>
-    <div class="col-md-1">221r</div>
+    <div  class="col-md-1" *ngFor="let p of diary.page; let i = index">
+      <a *ngIf="i%20==0">{{p.folio_num}}</a>
+    </div>
   </div>
 </div>
+-->
+
+<div class="container" id="folio-group">
+  <ul *ngFor="let p of diary.page; let i = index">
+    <li>
+      <a *ngIf="i%20==0" (click)="goToGroup(i)">{{p.folio_num}}</a>
+    </li>
+  </ul>
 </div>
 
 <!-- Pagination bar (old) -->

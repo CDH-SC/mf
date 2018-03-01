@@ -2,24 +2,23 @@
 
 # Label this stage as 'builder'
 FROM node:latest
-
 ENV a /mf-angular
 ENV e /mf-api
 ENV PORT 80
 
-COPY .${a}/package.json .${a}/package-lock.json ./
+COPY .${a}/package.json ./
 
 # Install node modules
 RUN npm i -dd && mkdir ${a} && cp -R ./node_modules ${a}
 
-RUN rm /package.json /package-lock.json
+RUN rm /package.json 
 
 WORKDIR ${a}
 
 # Bring in the source code
 COPY .${a} .
-
-RUN $(npm bin)/ng build --prod
+RUN $(npm bin)/ng --version
+RUN $(npm bin)/ng build
 
 RUN ls -lah
 
