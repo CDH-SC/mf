@@ -18,12 +18,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/mf')
 var conn = mongoose.connection;
 
 //Change these variables to match diary being added
-var _id = 24;
-var date = "1909";
-var volume_num = "XXIV";
-var ms_num = 46799;
-var num_pages = 416;
-var root = `Add_ms_${ms_num}-0`;
+var _id = 28;
+var date = "1913";
+var volume_num = "XXVIII";
+var ms_num = 46803;
+var num_pages = 490;
+var root = `Add_ms_${ms_num}_`;
 
 console.log(_id);
 
