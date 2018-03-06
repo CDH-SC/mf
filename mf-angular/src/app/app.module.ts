@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { PageViewComponent } from './page-view/page-view.component';
 import { VolumeLinksComponent } from './volume-links/volume-links.component';
 import { PagerService } from './_shared/_services/pager.service';
+import { OrderModule } from 'ngx-order-pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -42,7 +43,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    OrderModule
   ],
   providers: [
     PagerService,
