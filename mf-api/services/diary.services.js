@@ -5,16 +5,11 @@ var Diary = require('../models/diary.model')
 _this = this
 
 //Async function to get the Diary list
-exports.getDiaries = async function(query, page, limit){
-  //Options setup for mongoose paginate
-  var options = {
-    page,
-    limit
-  }
+exports.getDiaries = async function(){
 
   //Try Catch the awaited promise to handle the error
   try {
-    var diaries = await Diary.paginate(query, options)
+    var diaries = await Diary.find({})
 
     return diaries;
 

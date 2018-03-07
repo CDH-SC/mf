@@ -6,14 +6,10 @@ _this = this
 
 
 //Async Controller fuction to get diary list
-exports.getDiaries = async function(req, res, next){
-
-  //Check the existence of the query parameters, if doesn't exit assign default value
-  var page = req.query.page ? req.query.page : 1
-  var limit = req.query.limit ? req.query.limit : 10;
+exports.getDiaries = async function(req, res){
 
   try {
-    var diaries = await DiaryService.getDiaries({}, page, limit)
+    var diaries = await DiaryService.getDiaries({})
 
     //Return diaries list with appropriate HTTP status code and message
     return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diares"});
@@ -25,7 +21,7 @@ exports.getDiaries = async function(req, res, next){
 }
 
 //Async Controller fuction to get diary list by Id
-exports.getDiariesById = async function(req, res, next){
+exports.getDiariesById = async function(req, res){
 
   //Require id
   var id = req.params.id;
@@ -43,7 +39,7 @@ exports.getDiariesById = async function(req, res, next){
 }
 
 //Async controller function to create diary
-exports.createDiary = async function(req, res, next){
+exports.createDiary = async function(req, res){
 
   //Require body contains form values
   var diary = {
@@ -67,7 +63,7 @@ exports.createDiary = async function(req, res, next){
 }
 
 //Async controller function to update diary
-exports.updateDiary = async function(req, res, next){
+exports.updateDiary = async function(req, res){
   //Id required for the update
   if(!req.body._id){
     return res.status(400).json({status: 400., message: "Id must be present"})
@@ -97,7 +93,7 @@ exports.updateDiary = async function(req, res, next){
 }
 
 //Async controller function to remove diary
-exports.removeDiary = async function(req, res, next){
+exports.removeDiary = async function(req, res){
   //Require id
   var id = req.params.id;
 
