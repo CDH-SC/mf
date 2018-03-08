@@ -41,7 +41,7 @@ mf_db = client.mf # db
 #############################
 def upload_volume(pageArray):
     mf_db.diaries.update_one(
-    {"_id":18},
+    {"_id":"18"},
     {
     "$set": {
     "page":pageArray,
