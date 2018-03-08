@@ -83,12 +83,12 @@ export class PageViewComponent implements OnInit {
 
     console.log(jump);
     console.log(pgNum);
-    this.page = pgNum;
+    this.setPage(pgNum);
   }
 
   goToGroup(group) {
     var x = group+1;
-    this.page = x;
+    this.setPage(x);
     console.log(x);
   }
 
