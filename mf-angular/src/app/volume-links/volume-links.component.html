@@ -1,5 +1,5 @@
 <ul class="navigation">
-  <li *ngFor="let d of diary | orderBy: '_id'">
+  <li *ngFor="let d of diary | orderBy: _id">
     <a id={{d._id}} routerLink="/page-view/{{d._id}}" routerLinkActive="active">
       Volume {{d._id}} ({{ d.date }})
     </a>
