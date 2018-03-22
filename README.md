@@ -58,6 +58,11 @@ Live Version: http://mf.dev-cdh.org/home
    * Install the file with ./install.sh
    * Verify installation by running git lfs install.
 
+* Using Git LFS
+  * To save time when cloning the project LFS is configured to ignore all of the notebook images.
+   * If you need all of the images they can be downloaded by running ```$ git lfs fetch --all``` and ```$ git lfs checkout```
+   * If you only need some of the images you can use ```$ git lfs fetch -I mf-angular/src/images/<notebook wanted>```
+   * After building the project with ```ng build --watch run``` use ```cp -R mf-angular/src/images mf-angular/dist/images``` to have the notebook images load on the site.
 
 ### Deployment
 ---
