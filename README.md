@@ -28,7 +28,7 @@ Live Version: http://mf.dev-cdh.org/home
 
 
 * Create a local database
-  * A binory BSON dump of the database can be found: mf/mf-database/dump
+  * A binary BSON dump of the database can be found: mf/mf-database/dump
   * Ensure Mongo has been started on your local machine:
    * Linux:
     * ```$ sudo service mongod start```
@@ -45,6 +45,19 @@ Live Version: http://mf.dev-cdh.org/home
 * Example:
   * ```$ mongorestore mf/mf-database/dump```
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
+
+
+#### Git LFS
+* Installing Git LFS
+  * Mac
+   * To use Homebrew, run brew install git-lfs.
+   * To use MacPorts, run port install git-lfs.
+  * Linux
+   * Download Git LFS from https://git-lfs.github.com/
+   * Unzip the file and cd into the folder.
+   * Install the file with ./install.sh
+   * Verify installation by running git lfs install.
+
 
 ### Deployment
 ---
