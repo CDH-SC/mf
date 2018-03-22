@@ -37,7 +37,7 @@ export class PageViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.http.get('/api/diaries/'+id).subscribe(data => {
       this.diary = data["data"];
       this.allItems = data["data"]["page"];

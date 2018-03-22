@@ -23,4 +23,9 @@ export class VolumeLinksComponent implements OnInit {
     })
   }
 
+// Filters the volume links by specified string
+  filterBy(prop: string) {
+    return this.diary.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
+  }
+
 }

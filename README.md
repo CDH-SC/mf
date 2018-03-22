@@ -28,7 +28,7 @@ Live Version: http://mf.dev-cdh.org/home
 
 
 * Create a local database
-  * A binory BSON dump of the database can be found: mf/mf-database/dump
+  * A binary BSON dump of the database can be found: mf/mf-database/dump
   * Ensure Mongo has been started on your local machine:
    * Linux:
     * ```$ sudo service mongod start```
@@ -45,6 +45,31 @@ Live Version: http://mf.dev-cdh.org/home
 * Example:
   * ```$ mongorestore mf/mf-database/dump```
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
+
+
+#### Git LFS
+* Installing Git LFS
+  * Mac:
+    * To use Homebrew, run ```brew install git-lfs```
+    * To use MacPorts, run ```port install git-lfs```
+    * Verify install with ```git lfs install```
+  * Linux:
+    * Download Git LFS from https://git-lfs.github.com/
+    * Unzip the file and cd into the folder.
+    * Install the file with ```$ ./install.sh```
+    * Verify installation by running ```$ git lfs install```
+
+* Using Git LFS
+  * To save time when cloning the project LFS is configured to ignore all of the notebook images by default.
+  * To download all the images:
+    * ```$ git lfs fetch --all``` and ```$ git lfs checkout```
+  * To only download a specific notebook:
+    * ```$ git lfs fetch -I mf-angular/src/images/<notebook wanted>```
+    * ```$ git lfs checkout mf-angular/src/images/<notebook wanted>/*```
+  * To get notebook images to appear on the site:
+    * First build project with ```$ ng build --watch```
+    * Then copy the images with ```$ cp -R mf-angular/src/images mf-angular/dist/images```
+    * Any notebooks that are downloaded should now have images on the site.
 
 ### Deployment
 ---
