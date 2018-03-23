@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map'
 })
 export class VolumeLinksComponent implements OnInit {
 
-  diary : Diary;
+  diary : [Diary];
 
   constructor(private http: HttpClient) { }
 
