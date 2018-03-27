@@ -39,28 +39,8 @@ ngb-pagination /deep/ .page-link {color: black;
   font-size: 10pt;
 }
 
-input[type=text] {
-   width: 500px;
-   -webkit-transition: width 0.4s ease-in-out;
-   transition: width 0.4s ease-in-out;
-   font: 15px bold;
-   color: white;
-   background: #343f4b 0 0;
-   text-align: left;
-   margin: 0 0 15px 0;
-   border: 1px solid #8492a6;
-   border-radius: 5px;
-   height: 25px;
-   padding: 2px;
-}
-
 input[type=text]::placeholder {
   color: white;
-}
-
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-   width: 90%;
 }
 
 #folioNum {

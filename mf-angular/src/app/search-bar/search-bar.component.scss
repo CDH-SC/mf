@@ -1,0 +1,23 @@
+$primary-color: #47525e;
+$font-stack: Cardo, 'Times New Roman', Times, serif;
+$secondary-color: #f24c30;
+
+input[type=text] {
+   width: 500px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+   font: 12px bold;
+   color: #969faa;
+   background: #343f4b 0 0;
+   text-align: left;
+   margin: 0 0 15px 0;
+   border: 1px solid #8492a6;
+   border-radius: 5px;
+   height: 20px;
+   padding: 2px;
+}
+
+/* When the input field gets focus, change its width to 650px */
+input[type=text]:focus {
+   width: 650px;
+}
