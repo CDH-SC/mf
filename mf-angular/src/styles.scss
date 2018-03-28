@@ -3,7 +3,7 @@
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
 $primary-color: #47525e;
-$font-stack: Cardo, 'Times New Roman', Times, serif;
+$font-stack: Cardo, 'Futura', Times, serif;
 $secondary-color: #f24c30;
 
 * {
@@ -12,7 +12,7 @@ $secondary-color: #f24c30;
 }
 
 body {
-    font: 12px $font-stack;
+    font: 15x $font-stack;
     color: $primary-color;
     background-image: url(/assets/WebBackground.jpg);
     background-color: linen;
