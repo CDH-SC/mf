@@ -1,5 +1,5 @@
 $primary-color: #47525e;
-$font-stack: Cardo, 'Times New Roman', Times, serif;
+$font-stack: Cardo, 'Futura', Times, serif;
 $secondary-color: #f24c30;
 
 input[type=text] {
@@ -20,6 +20,10 @@ input[type=text] {
 /* When the input field gets focus, change its width to 650px */
 input[type=text]:focus {
    width: 650px;
+}
+
+h1 {
+  color: #e62e00;
 }
 
 #volLinkBar {
