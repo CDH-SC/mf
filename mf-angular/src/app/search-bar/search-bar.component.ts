@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DataService } from '../../services/pageview.service';
 import { Diary } from '../_shared/models/diary';
 import 'rxjs/add/operator/map'
+import { MongoClient, Db } from 'mongodb';
 
 
 @Component({
@@ -19,9 +20,7 @@ export class SearchBarComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/api/diaries').subscribe(data => {
-      this.diary = data["data"]["docs"];
-    })
+
   }
 
   searchFunction(search) {
