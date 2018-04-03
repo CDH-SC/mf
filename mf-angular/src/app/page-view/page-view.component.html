@@ -25,37 +25,38 @@
     <div class="metadata">
       <!-- First row -->
       <div class="d-flex">
-        <div class="p-2">Year: {{ diary.date }}</div>
-        <div class="p-2">Hand: {{ diary.page[page-1].hand }}</div>
-        <div class="p-2">Diary Num: {{ diary.volume_num }}</div>
+        <div class="p-2"><b>Year:</b> {{ diary.date }}</div>
+        <div class="p-2"><b>Hand:</b> {{ diary.page[page-1].hand }}</div>
+        <div class="p-2"><b>Diary Num:</b> {{ diary.volume_num }}</div>
       </div>
       <!-- Second row -->
       <div class="d-flex">
-        <div class="p-2">Folio Num: {{ diary.page[page-1].folio_num }}</div>
-        <div class="p-2">Manuscript Num: Add MS {{ diary.ms_num }}</div>
+        <div class="p-2"><b>Folio Num:</b> {{ diary.page[page-1].folio_num }}</div>
+        <div class="p-2"><b>Manuscript Num:</b> Add MS {{ diary.ms_num }}</div>
       </div>
       <!-- Third row -->
       <div class="d-flex">
-        <div class="p-2">Transcription Status: xx</div>
-        <div class="p-2">Transcriber: {{ diary.page[page-1].transcriber }}</div>
+        <div class="p-2"><b>Transcription Status:</b> xx</div>
+        <div class="p-2"><b>Transcriber:</b> {{ diary.page[page-1].transcriber }}</div>
       </div>
     </div>
-  </div>
+    <br>
 
-  <!-- Super search bar -->
-  <div class="d-flex justify-content-center">
-    <i class="fa fa-search" aria-hidden="true"></i>
-    <input type="text" name="search" placeholder="Search..">
-  </div>
-
-  <div class="container">
     <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="input-group md-form form-sm form-2 pl-0">
+          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <span class="input-group-text amber lighten-3"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
       <div class="col-sm-4">
-        <div class="input-group">
-          <input type="text" id="folioNum" class="form-control" placeholder="Go to Folio..." #jump1>
-          <span class="input-group-btn">
-            <button id="jumpBtn" type="button" class="btn btn-default" (click)="onClick(jump1.value)"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-          </span>
+        <div class="input-group md-form form-sm form-2 pl-0">
+          <input type="text" id="folioNum" class="form-control my-0 py-1 amber-border" placeholder="Go to Folio..." #jump1>
+          <div class="input-group-append">
+            <span (click)="onClick(jump1.value)" class="input-group-text amber lighten-3"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+          </div>
         </div>
       </div>
     </div>
@@ -99,46 +100,19 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Go To Page bar -->
-  <!--
-  <div class="container">
-  <div class="row justify-content-center">
-  <div class="col-sm-4">
-  <div class="input-group">
-  <form name="jumpTo" onsubmit="jump($event)">
-  <input type="number" min="1" max="{{diary.page.length}}" id="pgNum" placeholder="Page">
-  <input type="submit" value="Go" method="get">
-</form>
-</div>
-</div>
-</div>
-</div>
--->
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-4">
-      <div class="input-group">
-        <input type="text" id="folioNum" class="form-control" placeholder="Go to Folio..." #jump2>
-        <span class="input-group-btn">
-          <button id="jumpBtn" type="button" class="btn btn-default" (click)="onClick(jump2.value)"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-        </span>
+    <br>
+    <!-- Go To Folio... -->
+    <div class="row justify-content-center">
+      <div class="col-sm-4">
+        <div class="input-group md-form form-sm form-2 pl-0">
+          <input type="text" id="folioNum" class="form-control my-0 py-1 amber-border" placeholder="Go to Folio..." #jump1>
+          <div class="input-group-append">
+            <span (click)="onClick(jump1.value)" class="input-group-text amber lighten-3"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!--
-<div class="container">
-  <div class="row justify-content-center">
-    <div  class="col-md-1" *ngFor="let p of diary.page; let i = index">
-      <a *ngIf="i%20==0">{{p.folio_num}}</a>
-    </div>
-  </div>
-</div>
--->
 
 <div class="row justify-content-center" id="folio-group">
   <ul *ngFor="let p of diary.page; let i = index">
@@ -147,35 +121,3 @@
     </li>
   </ul>
 </div>
-
-<!-- Pagination bar (old) -->
-<!--
-<div class="container">
-<nav aria-label="Page navigation">
-<ul class="pagination justify-content-center pagination-sm">
-<li class="page-item">
-<a class="page-link" href="#" aria-label="Previous">
-<span aria-hidden="true">&laquo;</span>
-<span class="sr-only">Previous</span>
-</a>
-</li>
-<li class="page-item"><a class="page-link" href="#">1</a></li>
-<li class="page-item"><a class="page-link" href="#">2</a></li>
-<li class="page-item"><a class="page-link" href="#">3</a></li>
-<li class="page-item"><a class="page-link" href="#">4</a></li>
-<li class="page-item"><a class="page-link" href="#">5</a></li>
-<li class="page-item"><a class="page-link" href="#">6</a></li>
-<li class="page-item"><a class="page-link" href="#">7</a></li>
-<li class="page-item"><a class="page-link" href="#">8</a></li>
-<li class="page-item"><a class="page-link" href="#">9</a></li>
-<li class="page-item"><a class="page-link" href="#">10</a></li>
-<li class="page-item">
-<a class="page-link" href="#" aria-label="Next">
-<span aria-hidden="true">&raquo;</span>
-<span class="sr-only">Next</span>
-</a>
-</li>
-</ul>
-</nav>
-</div>
--->
