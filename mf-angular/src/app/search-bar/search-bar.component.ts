@@ -23,14 +23,14 @@ export class SearchBarComponent implements OnInit {
 
   }
 
-  searchFunction(search) {
-    this.diary.find({$text: {$search: search}}, function (err, results) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(results);
-      }
-    });
-  }
+  // searchFunction(search) {
+  //   this.diary.find({$text: {$search: search}}, function (err, results) {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       console.log(results);
+  //     }
+  //   });
+  // }
 
 }
