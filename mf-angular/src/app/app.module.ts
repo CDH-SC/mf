@@ -17,14 +17,17 @@ import { PageViewComponent } from './page-view/page-view.component';
 import { VolumeLinksComponent } from './volume-links/volume-links.component';
 import { PagerService } from './_shared/_services/pager.service';
 import { OrderModule } from 'ngx-order-pipe';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
   { path: 'page-view/:id', component: PageViewComponent},
+  { path: 'search-results', component: SearchResultsComponent},
 ];
 
 @NgModule({
@@ -37,6 +40,8 @@ const routes: Routes = [
     HomeComponent,
     PageViewComponent,
     VolumeLinksComponent,
+    SearchResultsComponent,
+    SearchBarComponent,
   ],
   imports: [
     HttpClientModule,

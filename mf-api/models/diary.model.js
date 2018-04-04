@@ -19,6 +19,7 @@ var diarySchema = new Schema({
     hand: String,
   }],
 }, { _id: false });
+diarySchema.index({'$**':'text'});
 
 //Export function to create "Diary" model class
 diarySchema.plugin(mongoosePaginate);
