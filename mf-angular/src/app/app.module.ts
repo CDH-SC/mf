@@ -21,7 +21,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},

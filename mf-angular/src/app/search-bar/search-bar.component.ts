@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { DataService } from '../../services/pageview.service';
 import { Diary } from '../_shared/models/diary';
 import 'rxjs/add/operator/map'
-import { MongoClient, Db } from 'mongodb';
 
 
 @Component({
@@ -20,7 +18,6 @@ export class SearchBarComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-
   }
 
   // searchFunction(search) {
