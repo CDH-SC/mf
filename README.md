@@ -61,6 +61,9 @@ Live Version: http://mf.dev-cdh.org/home
 
 * Using Git LFS
   * To save time when cloning the project LFS is configured to ignore all of the notebook images by default.
+  * Cache your GitHub password
+    * Ref: https://help.github.com/articles/caching-your-github-password-in-git/
+    * Cache it by running a git command before running a git lfs command. 
   * To download all the images:
     * ```$ git lfs fetch --all``` and ```$ git lfs checkout```
   * To only download a specific notebook:
