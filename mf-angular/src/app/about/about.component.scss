@@ -14,3 +14,40 @@ hr {
 ul {
   list-style-type: none;
 }
+
+.accordion {
+  background-color: white;
+  color: #e62e00;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.4s;
+}
+
+.accordion:after {
+  content: 'View More \02795';
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active, .accordion:hover {
+  background-color: white;
+}
+
+.active:after {
+  content: "View Less \2796";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: linen;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
