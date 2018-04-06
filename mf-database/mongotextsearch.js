@@ -1,7 +1,14 @@
 conn = new Mongo();
 db = conn.getDB("mf");
 
-var search = "trees",
+var search = "trees dogs";
+
+var searchTerm = new RegExp(
+    search.split(" ").map(function(word) {
+        return "\\b" + word + "\\b"
+    }).join("|")
+);
+
     pipeline = [
       {
         $match: {
@@ -13,7 +20,7 @@ var search = "trees",
       },
       {
         $match: {
-          "page.content": {$regex: search, $options: "i"}
+          "page.content": {$regex: searchTerm, $options: "i"}
         }
       },
       {
