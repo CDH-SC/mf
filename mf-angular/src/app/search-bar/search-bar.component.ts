@@ -24,6 +24,11 @@ export class SearchBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(search) {
+    console.log(search);
+    this.searchService.search(search);
+  }
+
   // searchFunction(search) {
   //   this.diary.find({$text: {$search: search}}, function (err, results) {
   //     if (err) {

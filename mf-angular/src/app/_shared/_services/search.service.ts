@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Diary } from '../models/diary';
-
+import { Http } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Injectable()
 export class SearchService {
 
   diary: Diary;
 
-  constructor() { }
-/*
+  constructor(
+    private http: HttpClient,
+  ) { }
+
+
   search(search) {
 
-    pipeline = [
+    var pipeline = [
       {
         $match: {
           $text: { $search: search }
@@ -34,12 +38,9 @@ export class SearchService {
       }
     ];
 
-    this.diary.aggregate(pipeline}, function (err, results) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(JSON.stringify(results));
-      }
+    this.http.get('/api/search/').subscribe(data => {
+      this.search = data["data"];
+      console.log(data);
     });
-  }*/
+  }
 }
