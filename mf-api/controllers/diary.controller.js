@@ -12,7 +12,7 @@ exports.getDiaries = async function(req, res){
     var diaries = await DiaryService.getDiaries({})
 
     //Return diaries list with appropriate HTTP status code and message
-    return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diares"});
+    return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diaries"});
 
   }catch(e){
     //Return error response with code and error message
@@ -30,7 +30,7 @@ exports.getDiariesById = async function(req, res){
     var diaries = await DiaryService.getDiariesById(id)
 
     //Return diaries list with appropriate HTTP status code and message
-    return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diares"});
+    return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diaries"});
 
   }catch(e){
     //Return error response with code and error message
