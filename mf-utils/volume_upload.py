@@ -22,7 +22,6 @@ from pprint import pprint # pprint library is used to make the output look prett
 
 startTime = datetime.now()
 directory = "../mf-archive/"
-pageArray = []
 
 #connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient('mongodb://localhost:27017/')
@@ -39,9 +38,9 @@ mf_db = client.mf # db
 # pages from a TEI XML file #
 # into mongodb.             #
 #############################
-def upload_volume(pageArray):
+def upload_volume(pageArray, notebookID):
     mf_db.diaries.update_one(
-    {"_id":"18"},
+    {"_id":str(notebookID)},
     {
     "$set": {
     "page":pageArray,
@@ -57,8 +56,10 @@ def main():
     # loop through files in ../mf-archive directory
     for filename in os.listdir(directory):
         if filename.endswith(".xml"):
+            notebook_id = int(filter(str.isdigit, filename)) #notebook id pulled from filename
             file = open(os.path.join(directory, filename), "r")
             content = file.read()
+            pageArray = []
             #print content
             contentMatch = re.findall("<pb/>(.*?)(?=<pb/>)", content, re.DOTALL) # each page is contained within two <pb/> tags
             print "found... "+str(len(contentMatch))+" entries for the following notebook: "+filename
@@ -67,27 +68,33 @@ def main():
             try:
                 # it will loop through each entry inside contentMatch and pull out the associated metadata
                 for pageContent in contentMatch:
-                    urlMatch = re.findall("http://(.*?).jpg", pageContent)
+                    urlMatch = re.findall("(Add_.*?).jpg", pageContent, re.IGNORECASE)
                     urlMatch = urlMatch[0]+".jpg" # append .jpg back onto urlMatch
-                    handMatch = re.findall("\[(.*?)\]", pageContent)
-                    metaDataMatch = re.findall("(Notebook.*?)</p>", pageContent, re.DOTALL)
+                    handMatch = re.findall("<handShift new=\"#(.*)\"", pageContent)
+                    metaDataMatch = re.findall("(Notebook.*?)</fw>", pageContent, re.DOTALL)
                     metaDataMatch[0] = metaDataMatch[0].replace('\n', '') # removes new line characters
                     metaDataMatch[0] = " ".join(metaDataMatch[0].split()) # removes duplicated whitespace
                     metaDataMatch[0] = re.split(';|,',metaDataMatch[0]) # split up string by delimeter ; or ,
-
                     if handMatch: # check if list is not empty, because apparently we have instances with no hand ?
                         hand = handMatch[0]
+                    else:
+                        hand = ''
 
                     #
                     # Note: in some cases below I take the zero index because the value is stored in a list ['value']
                     #       and I do not want to store a list within the dictionary
                     #
                     pageNum = int(filter(str.isdigit, metaDataMatch[0][1]))
-                    lastIndexMetaData = len(metaDataMatch[0])-1 # last index of metaData which should be the transcriber
-                    transcriber = re.findall("(.*?)(?=<)", metaDataMatch[0][lastIndexMetaData], re.DOTALL)[0]
+                    lastIndexMetaData = len(metaDataMatch[0])-2 # second to last index of metaData which should be the transcriber
+                    transcriber = re.findall(".*", metaDataMatch[0][lastIndexMetaData], re.DOTALL)[0].strip()
                     imageUrl = re.split('/',urlMatch)[-1:][0] # split url matches by / and  take last element which should be image name
-                    folioNum = re.split(' ', metaDataMatch[0][4])[-1:][0] # split 4th index of metaData by spaces which should be folio number,
+                    notebookID = int(filter(str.isdigit, metaDataMatch[0][0])) #notebookID pulled from metaData
+                    if "fol" in metaDataMatch[0][4]:
+                        folioNum = re.split(' ', metaDataMatch[0][4].strip())[-1:][0] # split 4th index of metaData by spaces which should be folio number,
                                                                           # then take last index of list e.g. ['fol.','121v']
+                    else:
+                        folioNum = ''
+
                     pageArray.append({"number":pageNum,
                     "folio_num": folioNum,
                     "image": imageUrl,
@@ -95,10 +102,11 @@ def main():
                     "transcriber": transcriber,
                     "hand": hand})
 
-                    upload_volume(pageArray) # uploads the pages to mongodb
+                    upload_volume(pageArray, str(notebookID)) # uploads the pages to mongodb
 
                     # remove the block comment below to output data for debugging purposes
                     '''
+                    print notebookID
                     print transcriber
                     print imageUrl
                     print folioNum
@@ -113,8 +121,8 @@ def main():
                     '''
 
                 print "Records updated successfully!\n"
-            except Excception, e:
-                print str(e, "Records updated unsuccessfully!\n")
+            except Exception as e:
+                print str(e)
 
 ###################################
 # calls the main function and     #
