@@ -13,30 +13,18 @@ export class SearchService {
   ) { }
 
 
-  search(search) {
+  search(search: string) {
+    console.log(search);
 
-    var pipeline = [
-      {
-        $match: {
-          $text: { $search: search }
-        }
+    this.http.post('/api/search', {search: search})
+    .subscribe(
+      res => {
+        console.log(res);
       },
-      {
-        $unwind: "$page"
-      },
-      {
-        $match: {
-          "page.content": {$regex: search, $options: "i"}
-        }
-      },
-      {
-        $project: {
-          "_id": 0,
-          "page.folio_num": 1,
-          "page.content": 1
-        }
+      err => {
+        console.log("Error posting search", err);
       }
-    ];
+    );
 
     this.http.get('/api/search/').subscribe(data => {
       this.search = data["data"];
