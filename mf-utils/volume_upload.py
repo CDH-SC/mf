@@ -74,7 +74,7 @@ def main():
                     metaDataMatch = re.findall("(Notebook.*?)</fw>", pageContent, re.DOTALL)
                     metaDataMatch[0] = metaDataMatch[0].replace('\n', '') # removes new line characters
                     metaDataMatch[0] = " ".join(metaDataMatch[0].split()) # removes duplicated whitespace
-                    metaDataMatch[0] = re.split(';|,',metaDataMatch[0]) # split up string by delimeter ; or ,
+                    metaDataMatch[0] = re.split(';|,|:',metaDataMatch[0]) # split up string by delimeter ; or ,
                     if handMatch: # check if list is not empty, because apparently we have instances with no hand ?
                         hand = handMatch[0]
                     else:
