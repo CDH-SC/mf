@@ -95,11 +95,11 @@ def main():
                     else:
                         folioNum = ''
 
-                    print pageContent
+                    #removes metadata from transcript
                     page = re.findall("</fw>(.*?)$", pageContent, re.DOTALL)
                     page[0] = page[0].replace('\n', '')
                     page[0] = " ".join(page[0].split())
-                    print page
+
                     pageArray.append({"number":pageNum,
                     "folio_num": folioNum,
                     "image": imageUrl,
