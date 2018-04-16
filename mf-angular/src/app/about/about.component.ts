@@ -24,8 +24,7 @@ export class AboutComponent implements OnInit {
         } else {
           panel.style.maxHeight = panel.scrollHeight + "px";
         }
-      }
       });
     }
-
+  }
 }

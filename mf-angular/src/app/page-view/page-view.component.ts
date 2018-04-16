@@ -44,6 +44,7 @@ export class PageViewComponent implements OnInit {
 
       // initialize page to 1
       this.setPage(1);
+      console.log(data["data"]["page"][56].folio_num);
     });
 
   }
@@ -59,31 +60,16 @@ export class PageViewComponent implements OnInit {
   }
 
   onClick(jump) {
-    jump.value;
-    var x = jump;
-    var pgNum = 0;
-    this.folio_num = jump;
-
-    //Checking index of V or R and slicing string to extract pgNum
-    if(jump.indexOf('v') == 1 || jump.indexOf('r') == 1) {
-      pgNum = parseInt(jump.slice(0,1));
-    } else if(jump.indexOf('v') == 2 || jump.indexOf('r') == 2) {
-      pgNum = parseInt(jump.slice(0,2));
-    } else if(jump.indexOf('v') == 3 || jump.indexOf('r') == 3) {
-      pgNum = parseInt(jump.slice(0,3));
-    } else {
-      alert("Please insert a valid folio number.\nIn format <Num><r/v>\nExample: 25v or 54r");
+    
+    var i;
+    for(i = 0; i < this.allItems.length; i++) {
+      console.log(this.allItems[i].folio_num);
+      if(jump == this.allItems[i].folio_num) {
+        this.setPage(i+1);
+        break;
+      }
     }
 
-    if(jump.includes('v')) {
-      pgNum = pgNum*2;
-    } else if(jump.includes('r')) {
-      pgNum = (pgNum*2) - 1;
-    }
-
-    console.log(jump);
-    console.log(pgNum);
-    this.setPage(pgNum);
   }
 
   goToGroup(group) {
