@@ -95,10 +95,15 @@ def main():
                     else:
                         folioNum = ''
 
+                    #removes metadata from transcript
+                    page = re.findall("</fw>(.*?)$", pageContent, re.DOTALL)
+                    page[0] = page[0].replace('\n', '')
+                    page[0] = " ".join(page[0].split())
+
                     pageArray.append({"number":pageNum,
                     "folio_num": folioNum,
                     "image": imageUrl,
-                    "content":pageContent,
+                    "content":page,
                     "transcriber": transcriber,
                     "hand": hand})
 
