@@ -22,8 +22,10 @@ exports.searchDiaries = async function(search){
       {
         $project: {
           "_id": 1,
+          "notebook_url": 1,
           "page.folio_num": 1,
-          "page.content": 1
+          "page.content": 1,
+          "page.image": 1,
         }
       }
     ];

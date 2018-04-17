@@ -29,6 +29,7 @@ export class SearchResultsComponent implements OnInit {
       this.searchResults = res2["data"];
       console.log(this.searchResults);
     });
+
   }
 
 }
