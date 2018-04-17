@@ -6,12 +6,12 @@
 # Contact: alcamech@gmail.com
 #
 # This is a volume upload script that will loop through the ../mf-archive/ directory
-# and its TEI XML files. It will automate the notebook upload process by pulling the
-# appropiate diary entries enclosed by <pb/> tags.
+# and its xHTML files ( HTML encoded with a TEI XSLT Stylesheet). It will automate the notebook upload process by pulling the
+# appropiate diary entries enclosed by fw clas and div.
 #
 # It uses regex, file operations, and some filtering.
 #
-# This script only works if the data within the xml files are CORRECT and CONSISTENT
+# This script only works if the data within the xHTML files are CORRECT and CONSISTENT
 
 import os
 import sys
@@ -35,7 +35,7 @@ mf_db = client.mf # db
 
 #############################
 # Uploads the processed     #
-# pages from a TEI XML file #
+# pages from a xHTML file #
 # into mongodb.             #
 #############################
 def upload_volume(pageArray, notebookID):
@@ -48,7 +48,7 @@ def upload_volume(pageArray, notebookID):
     })
 
 ###################################
-# iterates through a TEI XML file #
+# iterates through a xHTML file   #
 # and parses associated data for  #
 # each page.                      #
 ###################################
@@ -61,7 +61,7 @@ def main():
             file = open(os.path.join(directory, filename), "r")
             content = file.read()
             pageArray = []
-            contentMatch = re.findall("<p class=\"fw\">(.*?)(?=<div.*</div>)", content, re.DOTALL) # each page is contained within two <pb/> tags
+            contentMatch = re.findall("<p class=\"fw\">(.*?)(?=<div.*</div>)", content, re.DOTALL) # each page is contained within the fw class and div.
             print "found... "+str(len(contentMatch))+" entries for the following notebook: "+filename
             print "processing... "+str(len(contentMatch))+" entries for the following notebook: "+filename
 
@@ -104,7 +104,7 @@ def main():
                     pageArray.append({"number":pageNum,
                     "folio_num": folioNum,
                     "image": imageUrl,
-                    "content":page,
+                    "content":page[0],
                     "transcriber": transcriber,
                     "hand": hand})
 
