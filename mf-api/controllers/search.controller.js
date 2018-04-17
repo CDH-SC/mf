@@ -3,6 +3,8 @@ var SearchService = require('../services/search.services')
 _this = this
 
 exports.searchDiaries = async function(req, res){
+
+  var search = req.params.search;
   try {
     var searchResults = await SearchService.searchDiaries(search)
 

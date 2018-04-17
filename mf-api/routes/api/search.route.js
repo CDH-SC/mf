@@ -6,7 +6,7 @@ var router = express.Router()
 var searchController = require('../../controllers/search.controller')
 
 //Mapping each API to the controller functions
-router.get('/', searchController.searchDiaries)
+router.get('/:search', searchController.searchDiaries)
 router.post('/', searchController.createSearch)
 
 //Exporting the router
