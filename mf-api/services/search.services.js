@@ -21,11 +21,7 @@ exports.searchDiaries = async function(search){
       },
       {
         $project: {
-<<<<<<< HEAD
           "_id": 1,
-=======
-          "_id": 0,
->>>>>>> 26e3ec48e42ce01a6706c97305d16c5faeb4c3ab
           "page.folio_num": 1,
           "page.content": 1
         }
