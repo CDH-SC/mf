@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Diary } from '../models/diary';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SearchService {
@@ -12,13 +13,9 @@ export class SearchService {
     private http: HttpClient,
   ) { }
 
-
   search(search: string) {
     console.log(search);
 
-    this.http.get('/api/search/'+search).subscribe(data => {
-      this.search = data["data"];
-      console.log(data);
-    });
+    return this.http.get('/api/search/'+search);
   }
 }
