@@ -1,3 +1,16 @@
-<p>
-  search-results works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 align-self-center">
+      <app-search-bar></app-search-bar>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+  <div class="row">
+    <li *ngFor="let s of searchResults">
+      {{s.folio_num}} {{s.content}}
+    </li>
+  </div>
+</div>

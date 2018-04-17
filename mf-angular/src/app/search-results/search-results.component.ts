@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../_shared/_services/search.service';
+
 
 @Component({
   selector: 'app-search-results',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
-  constructor() { }
+  searchTerm: string;
+  searchResults: any[];
+
+  constructor(
+    private searchService: SearchService,
+  ) { }
 
   ngOnInit() {
+    var searchTerm = "test";
+    this.searchService.search(searchTerm).subscribe( res => {
+      this.searchResults = res["data"];
+      console.log(res["data"]);
+    });
+    console.log(this.searchResults);
   }
 
 }
