@@ -10,27 +10,32 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div *ngIf="searchResults">
         <li *ngFor="let s of searchResults">
-          <p><b>Volume:</b> {{s._id}}</p>
-          <p><b>Folio:</b> {{s.page.folio_num}}</p>
+          <a routerLink="/page-view/{{s._id}}" routerLinkActive="active">
+            <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
+          </a>
           <div class="row">
-          <div class="viewer-box">
-            <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
+            <div class="col-sm">
+              <div class="viewer-box">
+                <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="viewer-box">
+                <div od="transciption" [innerHTML]="s.page.content"></div>
+              </div>
+            </div>
           </div>
-          <div class="viewer-box">
-            <div [innerHTML]="s.page.content"></div>
-          </div>
-        </div>
           <hr>
           <br>
         </li>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
     </div>
   </div>
 </div>
