@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
   { path: 'page-view/:id', component: PageViewComponent},
-  { path: 'search-results', component: SearchResultsComponent},
+  { path: 'search-results/:search', component: SearchResultsComponent},
 ];
 
 @NgModule({

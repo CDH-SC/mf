@@ -9,8 +9,11 @@
     </div>
   </div>
   <div class="row">
+    <div *ngIf="searchResults">
     <li *ngFor="let s of searchResults">
-      {{s.folio_num}} {{s.content}}
+      {{s.page.folio_num}} {{s.page.content}}
     </li>
+    <br>
+  </div>
   </div>
 </div>

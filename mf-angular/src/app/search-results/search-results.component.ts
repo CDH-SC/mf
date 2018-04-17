@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../_shared/_services/search.service';
+import { searchresults } from '../_shared/models/searchresults';
+import { Http, Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -10,19 +15,20 @@ import { SearchService } from '../_shared/_services/search.service';
 export class SearchResultsComponent implements OnInit {
 
   searchTerm: string;
-  searchResults: any[];
+  searchResults: searchresults;
 
   constructor(
     private searchService: SearchService,
+    private http: HttpClient,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    var searchTerm = "test";
-    this.searchService.search(searchTerm).subscribe( res => {
-      this.searchResults = res["data"];
-      console.log(res["data"]);
+    const searchTerm = this.route.snapshot.paramMap.get('search');
+    this.http.get('/api/search/'+searchTerm).subscribe( res2 => {
+      this.searchResults = res2["data"];
+      console.log(this.searchResults);
     });
-    console.log(this.searchResults);
   }
 
 }
