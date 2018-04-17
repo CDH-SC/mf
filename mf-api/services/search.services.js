@@ -26,6 +26,7 @@ exports.searchDiaries = async function(search){
           "page.folio_num": 1,
           "page.content": 1,
           "page.image": 1,
+          "page.number": 1,
         }
       }
     ];

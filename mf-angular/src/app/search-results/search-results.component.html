@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <div *ngIf="searchResults">
         <li *ngFor="let s of searchResults">
-          <a routerLink="/page-view/{{s._id}}" routerLinkActive="active">
+          <a routerLink="/page-view/{{s._id}}/{{s.page.number}}" routerLinkActive="active">
             <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
           </a>
           <div class="row">

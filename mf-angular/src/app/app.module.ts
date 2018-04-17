@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
-  { path: 'page-view/:id', component: PageViewComponent},
+  { path: 'page-view/:id/:pageNum', component: PageViewComponent},  
   { path: 'search-results/:search', component: SearchResultsComponent},
 ];
 

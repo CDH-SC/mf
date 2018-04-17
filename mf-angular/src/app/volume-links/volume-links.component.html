@@ -1,7 +1,7 @@
 <div *ngIf="diary">
   <ul class="navigation">
     <li *ngFor="let d of filterBy(_id)">
-      <a id={{d._id}} routerLink="/page-view/{{d._id}}" routerLinkActive="active">
+      <a id={{d._id}} routerLink="/page-view/{{d._id}}/1" routerLinkActive="active">
         Volume {{d._id}} ({{ d.date }})
       </a>
       <hr class="style3">
