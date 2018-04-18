@@ -1,3 +1,41 @@
-<p>
-  search-results works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 align-self-center">
+      <app-search-bar></app-search-bar>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <div *ngIf="searchResults">
+        <li *ngFor="let s of searchResults">
+          <a routerLink="/page-view/{{s._id}}/{{s.page.number}}" routerLinkActive="active">
+            <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
+          </a>
+          <div class="row">
+            <div class="col-sm">
+              <div class="viewer-box">
+                <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="viewer-box">
+                <div od="transciption" [innerHTML]="s.page.content"></div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <br>
+        </li>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>

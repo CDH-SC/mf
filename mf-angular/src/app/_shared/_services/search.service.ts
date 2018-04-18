@@ -1,45 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Diary } from '../models/diary';
-
+import { Http, Response } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SearchService {
 
   diary: Diary;
 
-  constructor() { }
-/*
-  search(search) {
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-    pipeline = [
-      {
-        $match: {
-          $text: { $search: search }
-        }
-      },
-      {
-        $unwind: "$page"
-      },
-      {
-        $match: {
-          "page.content": {$regex: search, $options: "i"}
-        }
-      },
-      {
-        $project: {
-          "_id": 0,
-          "page.folio_num": 1,
-          "page.content": 1
-        }
-      }
-    ];
+  search(search: string) {
+    console.log(search);
 
-    this.diary.aggregate(pipeline}, function (err, results) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(JSON.stringify(results));
-      }
-    });
-  }*/
+    return this.http.get('/api/search/'+search);
+  }
 }

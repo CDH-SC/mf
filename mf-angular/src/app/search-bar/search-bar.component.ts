@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Diary } from '../_shared/models/diary';
 import 'rxjs/add/operator/map'
+import { SearchService } from '../_shared/_services/search.service';
 
 
 @Component({
@@ -15,9 +16,17 @@ export class SearchBarComponent implements OnInit {
   search: String;
   diary: Diary;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private searchService: SearchService,
+  ) { }
 
   ngOnInit() {
+  }
+
+  onClick(search) {
+    console.log(search);
+    this.searchService.search(search);
   }
 
   // searchFunction(search) {

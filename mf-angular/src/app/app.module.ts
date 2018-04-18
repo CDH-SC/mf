@@ -19,6 +19,7 @@ import { PagerService } from './_shared/_services/pager.service';
 import { OrderModule } from 'ngx-order-pipe';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchService } from './_shared/_services/search.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,8 +27,8 @@ const routes: Routes = [
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
-  { path: 'page-view/:id', component: PageViewComponent},
-  { path: 'search-results', component: SearchResultsComponent},
+  { path: 'page-view/:id/:pageNum', component: PageViewComponent},  
+  { path: 'search-results/:search', component: SearchResultsComponent},
 ];
 
 @NgModule({
@@ -53,6 +54,7 @@ const routes: Routes = [
   ],
   providers: [
     PagerService,
+    SearchService,
   ],
   bootstrap: [AppComponent]
 })

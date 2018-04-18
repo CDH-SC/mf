@@ -29,6 +29,7 @@ export class PageViewComponent implements OnInit {
   // Default page
   folio_num: String;
   page = 1;
+  pageNum: number;
 
   constructor(
     private http: HttpClient,
@@ -38,12 +39,14 @@ export class PageViewComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
+    const pageNum = this.route.snapshot.paramMap.get('pageNum');
+    console.log(pageNum);
     this.http.get('/api/diaries/'+id).subscribe(data => {
       this.diary = data["data"];
       this.allItems = data["data"]["page"];
 
       // initialize page to 1
-      this.setPage(1);
+      this.setPage(+pageNum);
       console.log(data["data"]["page"][56].folio_num);
     });
 
@@ -60,7 +63,7 @@ export class PageViewComponent implements OnInit {
   }
 
   onClick(jump) {
-    
+
     var i;
     for(i = 0; i < this.allItems.length; i++) {
       console.log(this.allItems[i].folio_num);

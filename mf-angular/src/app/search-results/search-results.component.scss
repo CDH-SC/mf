@@ -1,0 +1,17 @@
+$primary-color: #47525e;
+$font-stack: Cardo, 'Times New Roman', Times, serif;
+$secondary-color: #f24c30;
+
+.viewer-box {
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid grey;
+  width: auto;
+  overflow: hidden;
+}
+
+.viewer-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
