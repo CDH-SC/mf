@@ -18,21 +18,28 @@
           <a routerLink="/page-view/{{s._id}}/{{s.page.number}}" routerLinkActive="active">
             <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
           </a>
-          <div class="row">
-            <button class="accordion">About the Project</button>
-            <div class="panel">
-            <div class="col-sm">
-              <div class="viewer-box">
-                <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="viewer-box">
-                <div od="transciption" [innerHTML]="s.page.content"></div>
-              </div>
-            </div>
-          </div>
-          </div>
+          <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>&#9993; <b>View Notebook Page</b></span>
+                <span style="float:right">&#10133;</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="viewer-box">
+                      <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="viewer-box">
+                      <div od="transciption" [innerHTML]="s.page.content"></div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
           <hr>
           <br>
         </li>
