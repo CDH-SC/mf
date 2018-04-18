@@ -19,6 +19,8 @@
             <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
           </a>
           <div class="row">
+            <button class="accordion">About the Project</button>
+            <div class="panel">
             <div class="col-sm">
               <div class="viewer-box">
                 <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
@@ -29,6 +31,7 @@
                 <div od="transciption" [innerHTML]="s.page.content"></div>
               </div>
             </div>
+          </div>
           </div>
           <hr>
           <br>
