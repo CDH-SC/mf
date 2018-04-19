@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Diary } from '../_shared/models/diary';
-import 'rxjs/add/operator/map'
-import { SearchService } from '../_shared/_services/search.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,30 +8,14 @@ import { SearchService } from '../_shared/_services/search.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  search: String;
-  diary: Diary;
+  constructor(private router: Router) { }
 
-  constructor(
-    private http: HttpClient,
-    private searchService: SearchService,
-  ) { }
+  // Goes to search results page when enter is pressed
+  onEnter(route) {
+     this.router.navigate(['search-results/',route]);
+  }
 
   ngOnInit() {
+
   }
-
-  onClick(search) {
-    console.log(search);
-    this.searchService.search(search);
-  }
-
-  // searchFunction(search) {
-  //   this.diary.find({$text: {$search: search}}, function (err, results) {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       console.log(results);
-  //     }
-  //   });
-  // }
-
 }
