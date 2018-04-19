@@ -15,6 +15,7 @@ import { PagerService } from '../_shared/_services/index';
 })
 export class PageViewComponent implements OnInit {
 
+  // Define diary object
   diary : Diary;
 
   // array of all items to be paged
@@ -39,18 +40,19 @@ export class PageViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // Get diary id + current page number from router
     const id = this.route.snapshot.paramMap.get('id');
     const pageNum = this.route.snapshot.paramMap.get('pageNum');
-    console.log(pageNum);
+
+    // Pass diary id through diairy api and subscribe to resulting data
     this.http.get('/api/diaries/'+id).subscribe(data => {
       this.diary = data["data"];
       this.allItems = data["data"]["page"];
 
-      // initialize page to 1
+      // initialize page to pageNum from router
       this.setPage(+pageNum);
       console.log(data["data"]["page"][56].folio_num);
     });
-
   }
 
   setPage(page: number) {
@@ -67,7 +69,6 @@ export class PageViewComponent implements OnInit {
   }
 
   onClick(jump) {
-
     var i;
     for(i = 0; i < this.allItems.length; i++) {
       console.log(this.allItems[i].folio_num);
@@ -76,7 +77,6 @@ export class PageViewComponent implements OnInit {
         break;
       }
     }
-
   }
 
   goToGroup(group) {
@@ -84,7 +84,4 @@ export class PageViewComponent implements OnInit {
     this.setPage(x);
     console.log(x);
   }
-
-
-
 }

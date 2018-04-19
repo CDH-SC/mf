@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../_shared/_services/search.service';
 import { searchresults } from '../_shared/models/searchresults';
 import { Http, Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -18,14 +17,16 @@ export class SearchResultsComponent implements OnInit {
   searchResults: searchresults;
 
   constructor(
-    private searchService: SearchService,
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit() {
+    // Get search term from router
     const searchTerm = this.route.snapshot.paramMap.get('search');
+
+    // Pass search term through search api and subscribe to results
     this.http.get('/api/search/'+searchTerm).subscribe( res2 => {
       this.searchResults = res2["data"];
       console.log(this.searchResults);

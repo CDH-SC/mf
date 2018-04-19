@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <!-- Search bar -->
   <div class="row">
     <div class="col-md-3">
     </div>
@@ -9,21 +10,29 @@
     </div>
   </div>
   <br>
+  <!-- Search results -->
   <div class="row">
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
+      <!-- Array of search results -->
       <div *ngIf="searchResults">
-        <li *ngFor="let s of searchResults">
+        <!-- Output number of results found -->
+        <p><b>{{searchResults ? searchResults.length : ''}} results found</b></p>
+        <li *ngFor="let s of searchResults as result; let i = index" #length>
+          <!-- Volume & Folio num + Link to relevent page -->
           <a routerLink="/page-view/{{s._id}}/{{s.page.number}}" routerLinkActive="active">
-            <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
+            <b>Result:</b> {{i+1}}/{{result.length}}, <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
           </a>
+          <!-- Collapsible transciption and manuscript -->
           <ngb-accordion #acc="ngbAccordion">
             <ngb-panel>
+              <!-- Titlebar -->
               <ng-template ngbPanelTitle>
                 <span>&#9993; <b>View Notebook Page</b></span>
                 <span style="float:right">&#10133;</span>
               </ng-template>
+              <!-- Collapsed content -->
               <ng-template ngbPanelContent>
                 <div class="row">
                   <div class="col-sm">
