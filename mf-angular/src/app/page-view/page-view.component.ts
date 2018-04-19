@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/map'
 import { Diary } from '../_shared/models/diary';
@@ -35,6 +35,7 @@ export class PageViewComponent implements OnInit {
     private http: HttpClient,
     private pagerService: PagerService,
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -60,6 +61,9 @@ export class PageViewComponent implements OnInit {
       // get pager object from service
       this.pager = this.pagerService.getPager(this.allItems.length, page);
       this.page = this.pager.currentPage;
+
+      const id = this.route.snapshot.paramMap.get('id');
+      this.router.navigate(['page-view/',id,page]);
   }
 
   onClick(jump) {
