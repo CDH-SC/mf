@@ -5,6 +5,12 @@ _this = this
 
 exports.searchDiaries = async function(search){
   try {
+    var searchTerm = new RegExp(
+        search.split(" ").map(function(word) {
+            return "\\b" + word + "\\b"
+        }).join("|")
+    );
+
     var pipeline = [
       {
         $match: {
@@ -16,7 +22,7 @@ exports.searchDiaries = async function(search){
       },
       {
         $match: {
-          "page.content": {$regex: search, $options: "i"}
+          "page.content": {$regex: searchTerm, $options: "i"}
         }
       },
       {
