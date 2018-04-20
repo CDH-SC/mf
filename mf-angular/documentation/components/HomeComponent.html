@@ -110,12 +110,37 @@
                                     <a href="../components/PageViewComponent.html" >PageViewComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/SearchBarComponent.html" >SearchBarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/VolumeLinksComponent.html" >VolumeLinksComponent</a>
                                 </li>
                         </ul>
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-fw fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/AppPage.html" >AppPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/PagerService.html" >PagerService</a>
+                                </li>
+                        </ul>
+                    </li>
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -133,6 +158,12 @@
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/Diary.html" >Diary</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SearchService.html" >SearchService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/searchresults.html" >searchresults</a>
                                 </li>
                         </ul>
                     </li>
@@ -272,12 +303,37 @@
                                            <a href="../components/PageViewComponent.html" >PageViewComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/SearchBarComponent.html" >SearchBarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/VolumeLinksComponent.html" >VolumeLinksComponent</a>
                                        </li>
                                </ul>
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-fw fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/AppPage.html" >AppPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/PagerService.html" >PagerService</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -295,6 +351,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/Diary.html" >Diary</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SearchService.html" >SearchService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/searchresults.html" >searchresults</a>
                                        </li>
                                </ul>
                            </li>
@@ -628,51 +690,50 @@ export class HomeComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade" id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!-- Main page for MF --&gt;
-&lt;div id&#x3D;&quot;body_wrap&quot;&gt;
-  &lt;div id&#x3D;&quot;mid_wrap&quot;&gt;
-    &lt;div id&#x3D;&quot;mid&quot;&gt;
-      &lt;div id&#x3D;&quot;col_wrap&quot;&gt;
-        &lt;div id&#x3D;&quot;col_1&quot;&gt;
-          &lt;div&gt;
-             &lt;i class&#x3D;&quot;fa fa-search&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
-             &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;search&quot; placeholder&#x3D;&quot;Search..&quot;&gt;
-          &lt;/div&gt;
-          &lt;br&gt;
-          &lt;h1&gt;Welcome to the Michael Field Diaries&lt;/h1&gt;
-          &lt;div id&#x3D;&quot;body_txt&quot;&gt;
-            &lt;p&gt;
-              The poets, dramatists, and diarists Katharine Bradley (1846-1914) and Edith Cooper (1862-1913) were not only
-              aunt and niece, but also long-term partners who wrote collaboratively under the composite name &quot;Michael
-              Field.&quot; &quot;They&quot; published prolifically—particularly collections of lyric poetry and historical verse-dramas—finding
-              success with the early works in the 1880s, and winning new-found fame in recent times primarily with their
-              poetry. However, perhaps their most fascinating document is the diary they co-wrote to record their lives and
-              literary endeavors. Titled &quot;Works and Days,&quot; it primarily covers the years from 1888 to their deaths just prior to
-              World War I. Intended for posthumous publication, their literary executor (Thomas Sturge Moore), published in
-              1933 a vastly expurgated volume of extracts. Currently housed in the archives of the British Library, and
-              untranscribed, the full manuscript diary has been relatively inaccessible to anyone other than the dedicated
-              scholar. Yet it contains much to intrigue researchers and general readers alike. In addition to their own
-              aesthetic response to events both contemporaneous and historically-resonant, it offers a powerful historical
-              documentation of the construction of a queer identity through the formation of their aesthetic paganism, their
-              conversion to Catholicism, and, finally, through the pathos of Cooper’s death. It also tells the narrative of their
-              close, if often tempestuous, relationships with John Ruskin, Robert Browning, and Bernhard Berenson; and
-              their chronicle of the cultural life of fin-de-siecle London and Europe, detailing encounters with the leading
-              literary and artistic figures of the period, including Oscar Wilde, William Butler Yeats, Algernon Charles
-              Swinburne, and Walter Pater. The writing is powerful, caustic, and witty; and sometimes intensely moving.
-            &lt;/p&gt;
-          &lt;/div&gt;
-          &lt;!-- body_txt END --&gt;
-        &lt;/div&gt;
-        &lt;!-- col_1 END --&gt;
-      &lt;/div&gt;
-      &lt;!-- col_wrap END --&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
     &lt;/div&gt;
-    &lt;!-- mid END --&gt;
-    &lt;app-volume-links&gt;&lt;/app-volume-links&gt;
+    &lt;div class&#x3D;&quot;col-md-6 align-self-center&quot;&gt;
+      &lt;app-search-bar&gt;&lt;/app-search-bar&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;!-- mid_wrap END --&gt;
+  &lt;br&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-2-auto&quot; id&#x3D;&quot;volLinkBar&quot;&gt;
+      &lt;div id&#x3D;&quot;volHeader&quot;&gt;
+        &lt;h1&gt;Volumes&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;app-volume-links&gt;&lt;/app-volume-links&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-md-8&quot; id&#x3D;&quot;aboutTxt&quot;&gt;
+      &lt;h1 align&#x3D;&quot;center&quot;&gt;&lt;strong&gt;Welcome to the Michael Field Diaries&lt;/strong&gt;&lt;/h1&gt;
+      &lt;p&gt;The poets, dramatists, and diarists Katharine Bradley (1846-1914) and Edith Cooper (1862-1913) were not only
+        aunt and niece, but also long-term partners who wrote collaboratively under the composite name &quot;Michael
+        Field.&quot; &quot;They&quot; published prolifically—particularly collections of lyric poetry and historical verse-dramas—finding
+        success with the early works in the 1880s, and winning new-found fame in recent times primarily with their
+        poetry. However, perhaps their most fascinating document is the diary they co-wrote to record their lives and
+        literary endeavors. Titled &quot;Works and Days,&quot; it primarily covers the years from 1888 to their deaths just prior to
+        World War I. Intended for posthumous publication, their literary executor (Thomas Sturge Moore), published in
+        1933 a vastly expurgated volume of extracts. Currently housed in the archives of the British Library, and
+        untranscribed, the full manuscript diary has been relatively inaccessible to anyone other than the dedicated
+        scholar. Yet it contains much to intrigue researchers and general readers alike. In addition to their own
+        aesthetic response to events both contemporaneous and historically-resonant, it offers a powerful historical
+        documentation of the construction of a queer identity through the formation of their aesthetic paganism, their
+        conversion to Catholicism, and, finally, through the pathos of Cooper’s death. It also tells the narrative of their
+        close, if often tempestuous, relationships with John Ruskin, Robert Browning, and Bernhard Berenson; and
+        their chronicle of the cultural life of fin-de-siecle London and Europe, detailing encounters with the leading
+        literary and artistic figures of the period, including Oscar Wilde, William Butler Yeats, Algernon Charles
+        Swinburne, and Walter Pater. The writing is powerful, caustic, and witty; and sometimes intensely moving.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- body_wrap END --&gt;
 </code></pre>
     </div>
 
@@ -699,8 +760,8 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- Main page for MF --><div id="body_wrap">  <div id="mid_wrap">    <div id="mid">      <div id="col_wrap">        <div id="col_1">          <div>             <i class="fa fa-search" aria-hidden="true"></i>             <input type="text" name="search" placeholder="Search..">          </div>          <br>          <h1>Welcome to the Michael Field Diaries</h1>          <div id="body_txt">            <p>              The poets, dramatists, and diarists Katharine Bradley (1846-1914) and Edith Cooper (1862-1913) were not only              aunt and niece, but also long-term partners who wrote collaboratively under the composite name "Michael              Field." "They" published prolifically—particularly collections of lyric poetry and historical verse-dramas—finding              success with the early works in the 1880s, and winning new-found fame in recent times primarily with their              poetry. However, perhaps their most fascinating document is the diary they co-wrote to record their lives and              literary endeavors. Titled "Works and Days," it primarily covers the years from 1888 to their deaths just prior to              World War I. Intended for posthumous publication, their literary executor (Thomas Sturge Moore), published in              1933 a vastly expurgated volume of extracts. Currently housed in the archives of the British Library, and              untranscribed, the full manuscript diary has been relatively inaccessible to anyone other than the dedicated              scholar. Yet it contains much to intrigue researchers and general readers alike. In addition to their own              aesthetic response to events both contemporaneous and historically-resonant, it offers a powerful historical              documentation of the construction of a queer identity through the formation of their aesthetic paganism, their              conversion to Catholicism, and, finally, through the pathos of Cooper’s death. It also tells the narrative of their              close, if often tempestuous, relationships with John Ruskin, Robert Browning, and Bernhard Berenson; and              their chronicle of the cultural life of fin-de-siecle London and Europe, detailing encounters with the leading              literary and artistic figures of the period, including Oscar Wilde, William Butler Yeats, Algernon Charles              Swinburne, and Walter Pater. The writing is powerful, caustic, and witty; and sometimes intensely moving.            </p>          </div>          <!-- body_txt END -->        </div>        <!-- col_1 END -->      </div>      <!-- col_wrap END -->    </div>    <!-- mid END -->    <app-volume-links></app-volume-links>  </div>  <!-- mid_wrap END --></div><!-- body_wrap END --></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BrowseByDateComponent', 'selector': 'app-browse-by-date'},{'name': 'BrowseByHandComponent', 'selector': 'app-browse-by-hand'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PageViewComponent', 'selector': 'app-page-view'},{'name': 'VolumeLinksComponent', 'selector': 'app-volume-links'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <div class="row">    <div class="col-md-3">    </div>    <div class="col-md-6 align-self-center">      <app-search-bar></app-search-bar>    </div>    <div class="col-md-3">    </div>  </div>  <br>  <div class="row">    <div class="col-md-2-auto" id="volLinkBar">      <div id="volHeader">        <h1>Volumes</h1>      </div>      <div>        <app-volume-links></app-volume-links>      </div>    </div>    <div class="col-md-8" id="aboutTxt">      <h1 align="center"><strong>Welcome to the Michael Field Diaries</strong></h1>      <p>The poets, dramatists, and diarists Katharine Bradley (1846-1914) and Edith Cooper (1862-1913) were not only        aunt and niece, but also long-term partners who wrote collaboratively under the composite name "Michael        Field." "They" published prolifically—particularly collections of lyric poetry and historical verse-dramas—finding        success with the early works in the 1880s, and winning new-found fame in recent times primarily with their        poetry. However, perhaps their most fascinating document is the diary they co-wrote to record their lives and        literary endeavors. Titled "Works and Days," it primarily covers the years from 1888 to their deaths just prior to        World War I. Intended for posthumous publication, their literary executor (Thomas Sturge Moore), published in        1933 a vastly expurgated volume of extracts. Currently housed in the archives of the British Library, and        untranscribed, the full manuscript diary has been relatively inaccessible to anyone other than the dedicated        scholar. Yet it contains much to intrigue researchers and general readers alike. In addition to their own        aesthetic response to events both contemporaneous and historically-resonant, it offers a powerful historical        documentation of the construction of a queer identity through the formation of their aesthetic paganism, their        conversion to Catholicism, and, finally, through the pathos of Cooper’s death. It also tells the narrative of their        close, if often tempestuous, relationships with John Ruskin, Robert Browning, and Bernhard Berenson; and        their chronicle of the cultural life of fin-de-siecle London and Europe, detailing encounters with the leading        literary and artistic figures of the period, including Oscar Wilde, William Butler Yeats, Algernon Charles        Swinburne, and Walter Pater. The writing is powerful, caustic, and witty; and sometimes intensely moving.</p>      </div>      <div class="col-md-2">      </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BrowseByDateComponent', 'selector': 'app-browse-by-date'},{'name': 'BrowseByHandComponent', 'selector': 'app-browse-by-hand'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PageViewComponent', 'selector': 'app-page-view'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'VolumeLinksComponent', 'selector': 'app-volume-links'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>
