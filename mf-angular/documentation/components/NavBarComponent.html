@@ -110,12 +110,37 @@
                                     <a href="../components/PageViewComponent.html" >PageViewComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/SearchBarComponent.html" >SearchBarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/VolumeLinksComponent.html" >VolumeLinksComponent</a>
                                 </li>
                         </ul>
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-fw fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/AppPage.html" >AppPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/PagerService.html" >PagerService</a>
+                                </li>
+                        </ul>
+                    </li>
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -133,6 +158,12 @@
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/Diary.html" >Diary</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SearchService.html" >SearchService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/searchresults.html" >searchresults</a>
                                 </li>
                         </ul>
                     </li>
@@ -272,12 +303,37 @@
                                            <a href="../components/PageViewComponent.html" >PageViewComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/SearchBarComponent.html" >SearchBarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SearchResultsComponent.html" >SearchResultsComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/VolumeLinksComponent.html" >VolumeLinksComponent</a>
                                        </li>
                                </ul>
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-fw fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/AppPage.html" >AppPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/PagerService.html" >PagerService</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -295,6 +351,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/Diary.html" >Diary</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SearchService.html" >SearchService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/searchresults.html" >searchresults</a>
                                        </li>
                                </ul>
                            </li>
@@ -537,10 +599,10 @@ export class NavBarComponent implements OnInit {
 
     <div class="tab-pane fade" id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ul class&#x3D;&quot;navigation&quot; id&#x3D;&quot;nav_menu&quot;&gt;
-  &lt;li&gt;&lt;a routerLink&#x3D;&quot;/home&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a routerLink&#x3D;&quot;/browse-by-date&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;Browse by Date&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a routerLink&#x3D;&quot;/browse-by-hand&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;Browse by Hand&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a routerLink&#x3D;&quot;/about&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a routerLink&#x3D;&quot;/home&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;&lt;b&gt;Home&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;&lt;b&gt;Browse by Date&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;&lt;b&gt;Browse by Hand&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a routerLink&#x3D;&quot;/about&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;&lt;b&gt;About&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class&#x3D;&quot;flare&quot;&gt;
 </code></pre>
@@ -569,8 +631,8 @@ export class NavBarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ul class="navigation" id="nav_menu">  <li><a routerLink="/home" routerLinkActive="active">Home</a></li>  <li><a routerLink="/browse-by-date" routerLinkActive="active">Browse by Date</a></li>  <li><a routerLink="/browse-by-hand" routerLinkActive="active">Browse by Hand</a></li>  <li><a routerLink="/about" routerLinkActive="active">About</a></li></ul><hr class="flare"></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BrowseByDateComponent', 'selector': 'app-browse-by-date'},{'name': 'BrowseByHandComponent', 'selector': 'app-browse-by-hand'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PageViewComponent', 'selector': 'app-page-view'},{'name': 'VolumeLinksComponent', 'selector': 'app-volume-links'}];
+        var COMPONENT_TEMPLATE = '<div><ul class="navigation" id="nav_menu">  <li><a routerLink="/home" routerLinkActive="active"><b>Home</b></a></li>  <li><a><b>Browse by Date</b></a></li>  <li><a><b>Browse by Hand</b></a></li>  <li><a routerLink="/about" routerLinkActive="active"><b>About</b></a></li></ul><hr class="flare"></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BrowseByDateComponent', 'selector': 'app-browse-by-date'},{'name': 'BrowseByHandComponent', 'selector': 'app-browse-by-hand'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PageViewComponent', 'selector': 'app-page-view'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'SearchResultsComponent', 'selector': 'app-search-results'},{'name': 'VolumeLinksComponent', 'selector': 'app-volume-links'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavBarComponent'};
 </script>
