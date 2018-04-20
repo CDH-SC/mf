@@ -46,7 +46,7 @@ Live Version: http://mf.dev-cdh.org/home
   * ```$ mongorestore mf/mf-database/dump```
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
 
-### Tar Archiving Utility, Upload Script - Dealing with Michael Field Archives
+#### Tar Archiving Utility, Upload Script - Dealing with Michael Field Archives
 * Please refer to README found [here](https://github.com/CDH-SC/mf/tree/master/mf-archive)
 
 #### Git LFS - Dealing with Michael Field images
