@@ -2,7 +2,7 @@
   <ul class="navigation">
     <li *ngFor="let d of filterBy(_id)">
       <a id={{d._id}} routerLink="/page-view/{{d._id}}/1" routerLinkActive="active">
-        Volume {{d._id}} ({{ d.date }})
+        Volume {{ d._id }} ({{ d.date }})
       </a>
       <hr class="style3">
     </li>
