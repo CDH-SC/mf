@@ -3,20 +3,21 @@ import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 import { Diary } from '../_shared/models/diary';
 import { PagerService } from '../_shared/_services/index';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-page-view',
   templateUrl: './page-view.component.html',
   styleUrls: ['./page-view.component.scss'],
-//encapsulation: ViewEncapsulation.None
+// encapsulation: ViewEncapsulation.None
 })
 export class PageViewComponent implements OnInit {
 
   // Define diary object
-  diary : Diary;
+  diary: Diary;
 
   // array of all items to be paged
   private allItems: any[];
@@ -32,11 +33,15 @@ export class PageViewComponent implements OnInit {
   page = 1;
   pageNum: number;
 
+  // HTML
+  content: SafeHtml;
+
   constructor(
     private http: HttpClient,
     private pagerService: PagerService,
     private route: ActivatedRoute,
     private router: Router,
+    private sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
@@ -45,13 +50,13 @@ export class PageViewComponent implements OnInit {
     const pageNum = this.route.snapshot.paramMap.get('pageNum');
 
     // Pass diary id through diairy api and subscribe to resulting data
-    this.http.get('/api/diaries/'+id).subscribe(data => {
-      this.diary = data["data"];
-      this.allItems = data["data"]["page"];
+    this.http.get('/api/diaries/' + id).subscribe(data => {
+      this.diary =   data['data'];
+      this.allItems = data['data']['page'];
 
       // initialize page to pageNum from router
       this.setPage(+pageNum);
-      console.log(data["data"]["page"][56].folio_num);
+      console.log(data['data']['page'][56].folio_num);
     });
   }
 
@@ -65,22 +70,23 @@ export class PageViewComponent implements OnInit {
       this.page = this.pager.currentPage;
 
       const id = this.route.snapshot.paramMap.get('id');
-      this.router.navigate(['page-view/',id,page]);
+      this.router.navigate(['page-view/', id, page]);
+      this.content = this.sanitizer.bypassSecurityTrustHtml(this.diary.page[page - 1].content);
   }
 
   onClick(jump) {
     var i;
-    for(i = 0; i < this.allItems.length; i++) {
+    for (i = 0; i < this.allItems.length; i++) {
       console.log(this.allItems[i].folio_num);
-      if(jump == this.allItems[i].folio_num) {
-        this.setPage(i+1);
+      if (jump === this.allItems[i].folio_num) {
+        this.setPage(i + 1);
         break;
       }
     }
   }
 
   goToGroup(group) {
-    var x = group+1;
+    var x = group + 1;
     this.setPage(x);
     console.log(x);
   }

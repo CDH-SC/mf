@@ -28,7 +28,7 @@ export class PagerService {
         let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
         // create an array of pages to ng-repeat in the pager control
-        let pages = Array.from(Array(endPage+1-startPage), (_ , i)=>startPage+i );
+        let pages = Array.from(Array(endPage + 1 - startPage), (_ , i) => startPage + i );
 
         // return object with all pager properties required by the view
         return {
