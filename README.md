@@ -22,8 +22,8 @@ Live Version: http://mf.dev-cdh.org/home
   * ```cd mf-angular/```
     * ```npm install```
 * Note: If the npm install throws an error:
-  * If it says a module is not installed run ```npm install --save <module name>```
-  * If it says that an invalid character was read at the end of the line delete the node_module folder and the package-lock.json file and try the ```npm install``` command again
+  * If it says a module is not installed, run ```npm install --save <module name>```
+  * If it says that an invalid character was read at the end of the line, delete the node_module folder and the package-lock.json file and try the ```npm install``` command again
   * If its an npm permission error see [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions)
 
 
@@ -65,7 +65,7 @@ Live Version: http://mf.dev-cdh.org/home
   * To save time when cloning the project LFS is configured to ignore all of the notebook images by default.
   * Cache your GitHub password
     * Ref: https://help.github.com/articles/caching-your-github-password-in-git/
-    * Cache it by running a git command before running a git lfs command. 
+    * Cache it by running a git command before running a git lfs command.
   * To download all the images:
     * ```$ git lfs fetch --all``` and ```$ git lfs checkout```
   * To only download a specific notebook:
@@ -142,3 +142,4 @@ Note: Be sure to merge the latest from "upstream" before making a pull request!:
 MIT
 
 ### Acknowledgments
+
