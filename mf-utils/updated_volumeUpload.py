@@ -40,7 +40,7 @@ mf_db = client.mf # db
 #############################
 def upload_volume(pageArray, notebookID):
     mf_db.diaries.update_one(
-    {"_id":str(notebookID)},
+    {"_id":notebookID},
     {
     "$set": {
     "page":pageArray,
@@ -73,6 +73,9 @@ def main():
                     handMatch = re.findall("<p><span class=\"handShift\">(.*)<\/span></p>", pageContent)
                     metaDataMatch = re.findall("(Notebook.*?)<\/p>", pageContent, re.DOTALL)
                     metaDataMatch[0] = metaDataMatch[0].replace('\n', '')  # removes new line characters
+                    # removes ampersand in header's
+                    metaDataMatch[0] = metaDataMatch[0].replace('&amp;', ',')
+                    # print metaDataMatch[0]
                     metaDataMatch[0] = " ".join(metaDataMatch[0].split())  # removes duplicated whitespace
                     metaDataMatch[0] = re.split(';', metaDataMatch[0])  # split up string by delimeter ;
 
@@ -82,7 +85,6 @@ def main():
                     volumeMetadata = re.split(',', metaDataMatch[0][1])
                     # second index is transcriber(s)
                     transcriber = str(metaDataMatch[0][2])
-                    # print transcriber
                     # third index is the image URL
                     imageUrl = metaDataMatch[0][3]
                     if handMatch: # check if list is not empty, because apparently we have instances with no hand ?
@@ -97,7 +99,6 @@ def main():
                         if "fol" in volumeMetadata[2]:
                             folioNum = re.split(' ', volumeMetadata[2].strip())[-1:][0] # split 4th index of metaData by spaces which should be folio number,
                             # then take last index of list e.g. ['fol.','121v']
-                            # print folioNum
                         else:
                             folioNum = ''
                     else:
@@ -116,9 +117,10 @@ def main():
                     "transcriber": transcriber,
                     "hand": hand})
 
-                    upload_volume(pageArray, str(notebookID)) # uploads the pages to mongodb
-
                     # remove the block comment below to output data for debugging purposes
+                    # print notebookID
+                    # print folioNum
+                    # print transcriber
                     '''
                     print notebookID
                     print transcriber
@@ -134,8 +136,11 @@ def main():
                     print
                     '''
 
+                # uploads pages to mongo client
+                upload_volume(pageArray, str(notebook_id))
+                # print pageArray
+                # print "________________________________________________________"
                 print "Records updated successfully!\n"
-                # print pageArray[10]['transcriber']
             except Exception as e:
                 print str(e)
 
