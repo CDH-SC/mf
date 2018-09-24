@@ -1,10 +1,8 @@
-<div *ngIf="diary">
-  <ul class="navigation">
-    <li *ngFor="let d of filterBy(_id)">
-      <a id={{d._id}} routerLink="/page-view/{{d._id}}/1" routerLinkActive="active">
-        Volume {{ d._id }} ({{ d.date }})
-      </a>
-      <hr class="style3">
-    </li>
-  </ul>
+<div class="d-flex flex-column justify-content-start align-items-start" *ngIf="diary" id="volumeLinksContainer">
+  <h2>Volumes</h2>
+  <li *ngFor="let d of diary">
+    <a id={{d._id}} routerLink="/page-view/{{ d._id }}/1" routerLinkActive="active">
+      Volume {{ d._id }} ({{ d.date }})
+    </a>
+  </li>
 </div>

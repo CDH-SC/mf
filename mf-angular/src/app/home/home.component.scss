@@ -2,27 +2,11 @@ $primary-color: #47525e;
 $font-stack: Cardo, 'Futura', Times, serif;
 $secondary-color: #f24c30;
 
-h1 {
-  color: #e62e00;
+#welcomeHeader {
+  font-weight: bold;
+  color: $secondary-color;
 }
 
-#volLinkBar {
-  margin-left: 2.5%;
-  margin-right: 7.5%;
-  border: 2.5px solid $primary-color;
-  border-radius: 5px;
-}
-
-#volHeader {
-  h1 {
-    color: white;
-    text-align: center;
-  }
-  background-color: $primary-color;
-}
-
-#aboutTxt {
-  p {
-    line-height: 30px;
-  }
+p {
+  line-height: 30px;
 }

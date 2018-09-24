@@ -6,25 +6,45 @@ $primary-color: #47525e;
 $font-stack: Cardo, 'Futura', Times, serif;
 $secondary-color: #f24c30;
 
-* {
-    margin: 0;
-    padding: 0;
+html, body {
+  height: 100% !important;
 }
 
+// ::-webkit-scrollbar {
+//   display: none;
+// }
 
-.input-group.md-form.form-sm.form-2 input.amber-border  {
-    border: 1px solid #e62e00;
-}
+/*
+=================================================
+Body Styles
+=================================================
+*/
 
 body {
-    font: 15x $font-stack;
-    color: $primary-color;
-    background-image: url("/assets/WebBackground.jpg");
-    background-repeat: repeat;
-    margin-left: 0 !important; margin-left: 1px;
-    zoom: 100%;
+  font-family: $font-stack;
+  font-size: 16px !important;
+  color: $primary-color;
+  background-image: url('/assets/WebBackground.jpg');
+  background-color: #ebdac2;
+  background-repeat: repeat;
+  background-position: 50%;
 }
 
-.strikethrough {
-  text-decoration: line-through;
+body > a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*
+=================================================
+Basic Styles
+=================================================
+*/
+
+a:link, a:visited {
+  color: #47525e !important;
+}
+
+a:hover, a:active, a:focus {
+  color: #f24c30 !important;
 }
