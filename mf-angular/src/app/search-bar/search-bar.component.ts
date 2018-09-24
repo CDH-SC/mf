@@ -12,7 +12,7 @@ export class SearchBarComponent implements OnInit {
 
   // Goes to search results page when enter is pressed
   onEnter(route) {
-     this.router.navigate(['search-results/',route]);
+     this.router.navigate(['search-results/', route]);
   }
 
   ngOnInit() {

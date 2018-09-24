@@ -2,24 +2,25 @@ $primary-color: #47525e;
 $font-stack: Cardo, 'Times New Roman', Times, serif;
 $secondary-color: #f24c30;
 
-.navigation {
-    a:link, a:visited {
-      color: $primary-color;
-      text-decoration: none;
-    }
+#volumeLinksContainer {
+  border: 5px solid $primary-color;
+  border-radius: 10px;
+}
 
-    a:hover {
-      color: $secondary-color;
-    }
+h2 {
+  color: white;
+  background-color: $primary-color;
+  width: 100%;
+  text-align: center;
+}
 
-    li {
-      padding: 2.5px;
-      list-style-type: none;
-      margin: 5px;
-    }
+li {
+  width: 100%;
+  list-style-type: none;
+  padding: 5px;
+  border-bottom: 1px dotted $primary-color;
+}
 
-    hr.style3 {
-      margin: 2.5px auto;
-	    border-top: 1px dashed #8c8b8b;
-    }
+a {
+  text-decoration: none;
 }

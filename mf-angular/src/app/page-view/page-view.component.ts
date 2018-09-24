@@ -56,7 +56,6 @@ export class PageViewComponent implements OnInit {
 
       // initialize page to pageNum from router
       this.setPage(+pageNum);
-      console.log(data['data']['page'][56].folio_num);
     });
   }
 

@@ -20,6 +20,8 @@ import { OrderModule } from 'ngx-order-pipe';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchService } from './_shared/_services/search.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,6 +45,8 @@ const routes: Routes = [
     VolumeLinksComponent,
     SearchResultsComponent,
     SearchBarComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     HttpClientModule,
