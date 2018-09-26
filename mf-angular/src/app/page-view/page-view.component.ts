@@ -73,11 +73,11 @@ export class PageViewComponent implements OnInit {
       this.content = this.sanitizer.bypassSecurityTrustHtml(this.diary.page[page - 1].content);
   }
 
-  onClick(jump) {
-    var i;
+  jumpToFolio(folioValue) {
+    let i;
     for (i = 0; i < this.allItems.length; i++) {
       console.log(this.allItems[i].folio_num);
-      if (jump === this.allItems[i].folio_num) {
+      if (folioValue === this.allItems[i].folio_num) {
         this.setPage(i + 1);
         break;
       }
@@ -85,7 +85,7 @@ export class PageViewComponent implements OnInit {
   }
 
   goToGroup(group) {
-    var x = group + 1;
+    const x = group + 1;
     this.setPage(x);
     console.log(x);
   }

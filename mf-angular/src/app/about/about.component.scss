@@ -16,7 +16,7 @@ ul {
 }
 
 .accordion {
-  background-color: white;
+  background-color: #47525e;
   color: #e62e00;
   cursor: pointer;
   padding: 18px;
@@ -29,7 +29,7 @@ ul {
 }
 
 .accordion:after {
-  content: 'View More \02795';
+  content: 'View More';
   font-size: 13px;
   color: #777;
   float: right;
@@ -41,7 +41,7 @@ ul {
 }
 
 .active:after {
-  content: "View Less \2796";
+  content: "View Less";
 }
 
 .panel {

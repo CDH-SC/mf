@@ -21,7 +21,7 @@
         <p><b>{{searchResults ? searchResults.length : ''}} results found</b></p>
         <li *ngFor="let s of searchResults as result; let i = index" #length>
           <!-- Volume & Folio num + Link to relevent page -->
-          <a routerLink="/page-view/{{s._id}}/{{s.page.number}}" routerLinkActive="active">
+          <a class="pl-4" routerLink="/page-view/{{s._id}}/{{s.page.number}}" routerLinkActive="active">
             <b>Result:</b> {{i+1}}/{{result.length}}, <b>Volume:</b> {{s._id}}, <b>Folio:</b> {{s.page.folio_num}}
           </a>
           <!-- Collapsible transciption and manuscript -->
@@ -29,18 +29,18 @@
             <ngb-panel>
               <!-- Titlebar -->
               <ng-template ngbPanelTitle>
-                <span>&#9993; <b>View Notebook Page</b></span>
+                <span><b>View Notebook Page</b></span>
                 <span style="float:right">&#10133;</span>
               </ng-template>
               <!-- Collapsed content -->
               <ng-template ngbPanelContent>
                 <div class="row">
-                  <div class="col-sm">
+                  <div class="col-6">
                     <div class="viewer-box">
                       <img src="{{ s.notebook_url }}{{ s.page.image }}"/>
                     </div>
                   </div>
-                  <div class="col-sm">
+                  <div class="col-6">
                     <div class="viewer-box">
                       <div od="transciption" [innerHTML]="s.page.content"></div>
                     </div>
