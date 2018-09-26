@@ -4,33 +4,12 @@ $secondary-color: #f24c30;
 
 #nav {
   background: none;
-}
-
-#nav-links {
   font-size: 18px !important;
-  width: 50%;
+  font-weight: bold;
   max-width: 1440px;
+  margin: 0;
 }
 
-#nav-links a {
+#nav a {
   text-decoration: none;
-}
-
-hr.flare {
-  height: 50px;
-  border-style: ridge;
-  border-color: rgba(111, 113, 117,0.5);
-  border-width: 2px 0 0 0;
-  border-radius: 45px;
-}
-
-hr.flare:before {
-  display: block;
-  content: "";
-  height: 50px;
-  margin-top: -51px;
-  border-style: ridge;
-  border-color: rgba(111, 113, 117,0.5);
-  border-width: 0 0 2px 0;
-  border-radius: 45px;
 }

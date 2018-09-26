@@ -1,7 +1,6 @@
-<div class="d-flex justify-content-center pt-5" id="nav">
-  <div class="d-flex justify-content-around align-items-center" id="nav-links">
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
+<div class="d-flex flex-row justify-content-end w-100" id="nav">
+  <div class="d-flex flex-row justify-content-around w-75" id="navLinks">
+    <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+    <a [routerLink]="['/about']" routerLinkActive="active">About</a>
   </div>
 </div>
-<hr class="flare">
