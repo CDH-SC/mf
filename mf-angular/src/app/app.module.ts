@@ -21,7 +21,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchService } from './_shared/_services/search.service';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,7 +28,7 @@ const routes: Routes = [
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
-  { path: 'page-view/:id/:pageNum', component: PageViewComponent},  
+  { path: 'page-view/:id/:pageNum', component: PageViewComponent},
   { path: 'search-results/:search', component: SearchResultsComponent},
 ];
 
@@ -46,7 +45,6 @@ const routes: Routes = [
     SearchResultsComponent,
     SearchBarComponent,
     HeaderComponent,
-    FooterComponent,
   ],
   imports: [
     HttpClientModule,

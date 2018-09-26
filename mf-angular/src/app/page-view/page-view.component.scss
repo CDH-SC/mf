@@ -2,12 +2,16 @@ $primary-color: #47525e;
 $font-stack: Cardo, 'Times New Roman', Times, serif;
 $secondary-color: #f24c30;
 
+main {
+  width: 1920px;
+}
+
 .viewer-box {
-  height: 100%;
+  height: 700px;
   background-color: rgb(255, 255, 255);
   border: 1px solid grey;
   width: auto;
-  overflow: hidden;
+  overflow: auto;
 }
 
 a {
@@ -19,12 +23,6 @@ h1 {
   font-size: 32px
 }
 
-.viewer-box img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .metadata {
   color: secondary-color;
 }
@@ -33,7 +31,7 @@ h1 {
   color: black;
   border: 0px;
   background-color: rgba(255,255,255,0);
-  font-size: 10pt;
+  font-size: 14px;
 }
 
 ngb-pagination /deep/ .page-link {color: black;
@@ -41,16 +39,6 @@ ngb-pagination /deep/ .page-link {color: black;
   color: black;
   border: 0px;
   font-size: 10pt;
-}
-
-#folioNum {
-  width: 25%;
-}
-
-#jumpBtn {
-  width: 25px;
-  height: 25px;
-  padding: 0;
 }
 
 #folio-group {

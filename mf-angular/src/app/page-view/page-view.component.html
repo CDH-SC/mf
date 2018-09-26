@@ -1,118 +1,125 @@
 <!-- Title + Metadata -->
+
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116536365-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'UA-116536365-1', {
-      'page_title' : 'page-view',
-      'page_path' : '/home'
+      'page_title': 'page-view',
+      'page_path': '/home'
     });
   </script>
 </head>
 
-
-<div *ngIf="diary">
-  <div class="container">
-    <div class="row">
-      <!-- Date + Folio num -->
-      <h1>{{ diary.date }}: {{ diary.page[page-1].folio_num }}</h1>
-    </div>
-    <!-- Metadata -->
-    <div class="metadata">
-      <!-- First row -->
-      <div class="d-flex">
+<main class="m-auto">
+  <div *ngIf="diary">
+    <div class="d-flex flex-column w-75 m-auto">
+      <!-- Date + Folio Num -->
+      <div class="d-flex flex-row">
+        <h1>{{ diary.date }}: {{ diary.page[page-1].folio_num }}</h1>
+      </div>
+      <!-- Metadata -->
+      <!-- First Row -->
+      <div class="d-flex flex-row pl-4">
         <div class="p-2"><b>Year:</b> {{ diary.date }}</div>
         <div class="p-2"><b>Hand:</b> {{ diary.page[page-1].hand }}</div>
         <div class="p-2"><b>Diary Num:</b> {{ diary.volume_num }}</div>
       </div>
-      <!-- Second row -->
-      <div class="d-flex">
+      <!-- Second Row -->
+      <div class="d-flex flex-row pl-4">
         <div class="p-2"><b>Folio Num:</b> {{ diary.page[page-1].folio_num }}</div>
-        <div class="p-2"><b>Manuscript Num:</b> Add MS {{ diary.ms_num }}</div>
+        <div class="p-2"><b>Manuscript Num:</b> {{ diary.ms_num }}</div>
       </div>
-      <!-- Third row -->
-      <div class="d-flex">
+      <!-- Third Row -->
+      <div class="d-flex flex-row pl-4">
         <div class="p-2"><b>Transcription Status:</b> * *</div>
         <div class="p-2"><b>Transcriber:</b> {{ diary.page[page-1].transcriber }}</div>
       </div>
     </div>
     <br>
 
-    <div class="row justify-content-center">
-      <div class="col-6">
+    <div class="d-flex flex-row justify-content-center align-items-center w-75 m-auto">
+      <div class="col-4">
         <app-search-bar></app-search-bar>
       </div>
-      <div class="col-sm-4">
-        <div class="input-group md-form form-sm form-2 pl-0">
-          <input type="text" id="folioNum" class="form-control my-0 py-1 amber-border searchBar" placeholder="Go to Folio..." #jump2>
+      <!-- Go to Folio Bar -->
+      <div class="col-2">
+        <div class="input-group w-100">
+          <input type="text" class="form-control searchBar" placeholder="Go to Folio" aria-label="Search" (keyup.enter)="jumpToFolio(folioValue)"
+            [(ngModel)]="folioValue">
           <div class="input-group-append">
-            <span (click)="onClick(jump2.value)" class="input-group-text amber lighten-3 searchButton"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+            <a class="input-group-text searchButton" id="searchButton" style="text-decoration: none;" (click)="jumpToFolio(folioValue)">
+              <i class="fa fa-lg fa-arrow-circle-right text-grey" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Pagination bar for Folio Num -->
-  <div class="container d-flex justify-content-center">
-            <!-- pager -->
-            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                <li [ngClass]="{disabled:pager.currentPage === 1}">
-                    <a (click)="setPage(1)">Cover</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-                </li>
-                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)">{{ diary.page[page-1].folio_num }}</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)">Back Cover</a>
-                </li>
-            </ul>
-  </div>
+    <!-- Pagination bar for Folio Num -->
+    <div class="container d-flex justify-content-center">
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">Cover</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{ diary.page[page-1].folio_num }}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Back Cover</a>
+        </li>
+      </ul>
+    </div>
 
-  <!-- Viewer boxes manuscript/transciption -->
-  <div class="container">
-    <div class="row justify-content-center">
+    <!-- Viewer boxes manuscript/transciption -->
+    <div class="d-flex flex-row justify-content-center w-75 m-auto">
       <!-- Manuscript -->
-      <div class="col-sm">
+      <div class="col-5">
         <div class="viewer-box">
-          <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}"/>
+          <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}" />
         </div>
       </div>
       <!-- Transcription -->
-      <div class="col-sm">
+      <div class="col-5">
         <div class="viewer-box">
           <div id="transcription" [innerHTML]="content"></div>
         </div>
       </div>
     </div>
     <br>
+
     <!-- Go To Folio... -->
-    <div class="row justify-content-center">
-      <div class="col-sm-4">
-        <div class="input-group md-form form-sm form-2 pl-0">
-          <input type="text" id="folioNum" class="form-control my-0 py-1 amber-border searchBar" placeholder="Go to Folio..." #jump1>
+    <div class="d-flex flex-row justify-content-center align-items-center w-75 m-auto">
+      <div class="col-2">
+        <div class="input-group w-100">
+          <input type="text" class="form-control searchBar" placeholder="Go to Folio" aria-label="Search" (keyup.enter)="jumpToFolio(folioValue)"
+            [(ngModel)]="folioValue">
           <div class="input-group-append">
-            <span (click)="onClick(jump1.value)" class="input-group-text amber lighten-3 searchButton"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></span>
+            <a class="input-group-text searchButton" id="searchButton" style="text-decoration: none;" (click)="jumpToFolio(folioValue)">
+              <i class="fa fa-lg fa-arrow-circle-right text-grey" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-<div class="row justify-content-center" id="folio-group">
-  <ul *ngFor="let p of diary.page; let i = index">
-    <li>
-      <a *ngIf="i%20==0" (click)="goToGroup(i)">{{p.folio_num}}</a>
-    </li>
-  </ul>
-</div>
+    <div class="row justify-content-center" id="folio-group">
+      <ul *ngFor="let p of diary.page; let i = index">
+        <li>
+          <a *ngIf="i%20==0" (click)="goToGroup(i)">{{p.folio_num}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>
