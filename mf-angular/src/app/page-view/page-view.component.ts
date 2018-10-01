@@ -36,6 +36,9 @@ export class PageViewComponent implements OnInit {
   // HTML
   content: SafeHtml;
 
+  // Default Transcription Status
+  transcriptionStatus = '**';
+
   constructor(
     private http: HttpClient,
     private pagerService: PagerService,
@@ -57,6 +60,15 @@ export class PageViewComponent implements OnInit {
       // initialize page to pageNum from router
       this.setPage(+pageNum);
     });
+
+    // Checking if copyright cookie exists
+    if (document.cookie.split(';').filter((item) => item.includes('copyright=')).length) { // Cookie "copyright" exists
+      if (document.cookie.split(';').filter((item) => item.includes('copyright=false')).length) { // if "copyright" is false, alert
+        this.confirmMessage();
+      }
+    } else { // Cookie "copyright" does not exist
+      this.confirmMessage();
+    }
   }
 
   setPage(page: number) {
@@ -87,6 +99,22 @@ export class PageViewComponent implements OnInit {
   goToGroup(group) {
     const x = group + 1;
     this.setPage(x);
-    console.log(x);
+  }
+
+  confirmMessage() {
+    alertify.confirm().setting({
+      'title': 'ERROR',
+      'message': 'Something',
+      'labels': { ok: 'Agree', cancel: 'Decline' },
+      'closable': false,
+      'movable': false,
+      'reverseButtons': true,
+      'onok': function () {
+        document.cookie = 'copyright=true';
+      },
+      'oncancel': function () {
+        console.log('cancelled');
+      }
+    }).show();
   }
 }
