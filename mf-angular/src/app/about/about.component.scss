@@ -17,7 +17,7 @@ ul {
 
 .accordion {
   background-color: #47525e;
-  color: #e62e00;
+  color: #ffffff;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -38,6 +38,7 @@ ul {
 
 .active, .accordion:hover {
   background-color: white;
+  color: #e62e00;
 }
 
 .active:after {
