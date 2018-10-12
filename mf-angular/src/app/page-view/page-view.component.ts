@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { Diary } from '../_shared/models/diary';
 import { PagerService } from '../_shared/_services/index';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { alertify } from 'alertifyjs';
 
 @Component({
   selector: 'app-page-view',
