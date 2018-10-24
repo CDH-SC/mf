@@ -7,7 +7,6 @@ import 'rxjs/add/operator/map';
 import { Diary } from '../_shared/models/diary';
 import { PagerService } from '../_shared/_services/index';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { alertify } from 'alertifyjs';
 
 @Component({
   selector: 'app-page-view',
@@ -55,7 +54,8 @@ export class PageViewComponent implements OnInit {
 
     // Pass diary id through diairy api and subscribe to resulting data
     this.http.get('/api/diaries/' + id).subscribe(data => {
-      this.diary =   data['data'];
+      this.diary = data['data'];
+      console.log(data);
       this.allItems = data['data']['page'];
 
       // initialize page to pageNum from router
@@ -103,7 +103,7 @@ export class PageViewComponent implements OnInit {
   }
 
   confirmMessage() {
-    alertify.confirm().setting({
+    (<any>alertify).confirm().setting({
       'title': 'ERROR',
       'message': 'Something',
       'labels': { ok: 'Agree', cancel: 'Decline' },

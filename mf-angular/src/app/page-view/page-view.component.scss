@@ -6,12 +6,25 @@ main {
   width: 1920px;
 }
 
-.viewer-box {
+.viewer-box-transcript {
   height: 700px;
+  width: 557px;
   background-color: rgb(255, 255, 255);
   border: 1px solid grey;
-  width: auto;
   overflow: auto;
+}
+
+.viewer-box-img {
+  height: 700px;
+  width: 557px;
+  overflow: hidden;
+}
+
+.viewer-box-img > img {
+  display: block;
+  margin: auto;
+  max-width: 557px;
+  max-height: 700px;
 }
 
 a {
