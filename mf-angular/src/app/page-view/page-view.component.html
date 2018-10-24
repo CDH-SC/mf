@@ -98,14 +98,14 @@
     <!-- Viewer boxes manuscript/transciption -->
     <div class="d-flex flex-row justify-content-center w-75 m-auto">
       <!-- Manuscript -->
-      <div class="col-5">
-        <div class="viewer-box">
+      <div class="col-5 align-self-end">
+        <div class="viewer-box-img">
           <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}" />
         </div>
       </div>
       <!-- Transcription -->
       <div class="col-5">
-        <div class="viewer-box">
+        <div class="viewer-box-transcript">
           <div id="transcription" [innerHTML]="content"></div>
         </div>
       </div>

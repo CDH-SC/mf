@@ -86,7 +86,8 @@ def main():
                     # second index is transcriber(s)
                     transcriber = str(metaDataMatch[0][2])
                     # third index is the image URL
-                    imageUrl = metaDataMatch[0][3]
+                    imageUrl = metaDataMatch[0][3].lstrip()
+                    # print imageUrl
                     if handMatch: # check if list is not empty, because apparently we have instances with no hand ?
                         hand = handMatch[0]
                     else:
@@ -119,7 +120,7 @@ def main():
 
                     # remove the block comment below to output data for debugging purposes
                     # print notebookID
-                    print folioNum
+                    # print folioNum
                     # print transcriber
                     '''
                     print notebookID
@@ -137,7 +138,7 @@ def main():
                     '''
 
                 # uploads pages to mongo client
-                # upload_volume(pageArray, str(notebook_id))
+                upload_volume(pageArray, str(notebook_id))
                 # print pageArray
                 # print "________________________________________________________"
                 print "Records updated successfully!\n"
