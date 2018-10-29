@@ -21,6 +21,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchService } from './_shared/_services/search.service';
 import { HeaderComponent } from './header/header.component';
+import { CpModalComponent } from './cp-modal/cp-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -45,6 +46,7 @@ const routes: Routes = [
     SearchResultsComponent,
     SearchBarComponent,
     HeaderComponent,
+    CpModalComponent,
   ],
   imports: [
     HttpClientModule,
