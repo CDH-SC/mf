@@ -3,7 +3,7 @@ $font-stack: Cardo, 'Times New Roman', Times, serif;
 $secondary-color: #f24c30;
 
 main {
-  width: 1920px;
+  width: 100%;
 }
 
 .viewer-box-transcript {
@@ -11,6 +11,7 @@ main {
   width: 557px;
   background-color: rgb(255, 255, 255);
   border: 1px solid grey;
+  padding: 20px;
   overflow: auto;
 }
 
