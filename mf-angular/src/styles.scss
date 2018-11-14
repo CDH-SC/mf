@@ -21,10 +21,10 @@ Body Styles
 */
 
 body {
-  font-family: $font-stack;
+  font-family: $font-stack !important;
   font-size: 16px !important;
   color: $primary-color;
-  background-image: url('/assets/WebBackgroundSquare.jpg');
+  background-image: url('/assets/WebBackground.jpg');
   background-color: #ebdac2;
   background-repeat: repeat;
   background-position: 50%;
