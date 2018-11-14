@@ -14,7 +14,7 @@ exports.getDiaries = async function(req, res){
     //Return diaries list with appropriate HTTP status code and message
     return res.status(200).json({status: 200, data: diaries, message: "Successfully recieved diaries"});
 
-  }catch(e){
+  } catch(e){
     //Return error response with code and error message
     return res.status(400).json({status: 400, message: e.message});
   }
