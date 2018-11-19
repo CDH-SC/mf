@@ -7,16 +7,19 @@ $secondary-color: #f24c30;
   color: $secondary-color;
 }
 
-p {
-  line-height: 30px;
-}
-
 #linksContainer {
-  width: 15%;
+  width: 20%;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #contentContainer {
-  width: 80%;
+  width: 70%;
+  margin-right: 20px;
+}
+
+p {
+  line-height: 30px;
 }
 
 .pilot {
