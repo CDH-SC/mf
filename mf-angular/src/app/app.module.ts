@@ -1,27 +1,26 @@
-import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { RouterLink } from '@angular/router';
-
-import { AppComponent } from './app.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AboutComponent } from './about/about.component';
-import { BrowseByHandComponent } from './browse-by-hand/browse-by-hand.component';
-import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component';
-import { HomeComponent } from './home/home.component';
-import { PageViewComponent } from './page-view/page-view.component';
-import { VolumeLinksComponent } from './volume-links/volume-links.component';
-import { PagerService } from './_shared/_services/pager.service';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OrderModule } from 'ngx-order-pipe';
-import { SearchResultsComponent } from './search-results/search-results.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { SearchService } from './_shared/_services/search.service';
+import { RouterModule, Routes } from '@angular/router';
+
+import { AboutComponent } from './about/about.component';
+import { AppComponent } from './app.component';
+import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component';
+import { BrowseByHandComponent } from './browse-by-hand/browse-by-hand.component';
+import { CopyrightComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { CpModalComponent } from './cp-modal/cp-modal.component';
+import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { PageViewComponent } from './page-view/page-view.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { VolumeLinksComponent } from './volume-links/volume-links.component';
+
+import { PagerService } from './_shared/_services/pager.service';
+import { SearchService } from './_shared/_services/search.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,31 +34,33 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
     AboutComponent,
-    BrowseByHandComponent,
+    AppComponent,
     BrowseByDateComponent,
-    NavBarComponent,
-    HomeComponent,
-    PageViewComponent,
-    VolumeLinksComponent,
-    SearchResultsComponent,
-    SearchBarComponent,
+    BrowseByHandComponent,
+    CopyrightComponent,
     HeaderComponent,
-    CpModalComponent,
+    HomeComponent,
+    NavBarComponent,
+    PageViewComponent,
+    SearchBarComponent,
+    SearchResultsComponent,
+    VolumeLinksComponent,
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     OrderModule
   ],
   providers: [
+    NgbActiveModal,
     PagerService,
     SearchService,
   ],
+  entryComponents: [CopyrightComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
