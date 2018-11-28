@@ -2,13 +2,14 @@ $primary-color: #47525e;
 $font-stack: Cardo, 'Times New Roman', Times, serif;
 $secondary-color: #f24c30;
 
-main {
-  width: 100%;
+.searchBar, .searchButton {
+  border: 1px solid $primary-color;
+  border-radius: 5px;
 }
 
 .viewer-box-transcript {
   height: 700px;
-  width: 557px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   border: 1px solid grey;
   padding: 20px;
@@ -16,8 +17,8 @@ main {
 }
 
 .viewer-box-img {
-  height: 700px;
-  width: 557px;
+  max-height: 700px;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -42,8 +43,8 @@ h1 {
 }
 
 .pagination a {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 12px;
+  padding-right: 12px;
   color: $primary-color;
   border: 0px;
   background-color: rgba(255,255,255,0);
