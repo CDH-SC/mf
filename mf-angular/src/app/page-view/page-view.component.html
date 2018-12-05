@@ -68,12 +68,12 @@
 
   <!-- Viewer Boxes for Manuscript/Transcription -->
   <div class="row justify-content-center">
-    <div class="col-8 col-xl-4">
+    <div class="col-7 col-xl-5">
       <div class="viewer-box-img">
         <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}">
       </div>
     </div>
-    <div class="col-8 col-xl-4">
+    <div class="col-7 col-xl-5">
       <div class="viewer-box-transcript">
         <div *ngIf="content" [innerHTML]="content" id="transcription"></div>
       </div>
