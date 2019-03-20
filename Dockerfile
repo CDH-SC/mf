@@ -5,6 +5,7 @@ FROM node:latest
 ENV a /mf-angular
 ENV e /mf-api
 ENV PORT 80
+ENV DB_HOST mongodb://mf_db2:27017/mf
 
 COPY .${a}/package.json ./
 
