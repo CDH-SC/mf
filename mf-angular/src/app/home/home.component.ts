@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import * as bootstrap from "bootstrap";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
