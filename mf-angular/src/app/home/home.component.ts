@@ -23,16 +23,16 @@ export class HomeComponent implements OnInit {
     if (document.cookie.split(';').filter(item => item.includes('copyright=')).length) {
       // Cookie 'copyright' exists
       if (document.cookie.split(';').filter(item => item.includes('copyright=false')).length) {
-        $('#copyrightModal').modal('show');
+        jQuery('#copyrightModal').modal('show');
       }
     } else {
-      $('#copyrightModal').modal('show');
+      jQuery('#copyrightModal').modal('show');
     }
   }
 
   agree() {
     document.cookie = 'copyright=true';
-    $('#copyrightModal').modal('hide');
+    jQuery('#copyrightModal').modal('hide');
   }
 
   // ngAfterContentInit() {
