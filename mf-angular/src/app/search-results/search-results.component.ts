@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { searchresults } from '../_shared/models/searchresults';
-import { Http, Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 

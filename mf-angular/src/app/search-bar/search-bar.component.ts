@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SearchBarComponent implements OnInit {
 
+  route: any;
+
   constructor(private router: Router) { }
 
   // Goes to search results page when enter is pressed

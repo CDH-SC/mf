@@ -52,7 +52,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    NgbModule,
     RouterModule.forRoot(routes),
     OrderModule
   ],

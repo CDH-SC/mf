@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get('/api/diaries').subscribe(data => {
+    this.http.get('http://localhost:3000/api/diaries').subscribe(data => {
       this.diary = data['data']['docs'];
     });
 
