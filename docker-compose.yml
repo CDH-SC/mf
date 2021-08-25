@@ -25,7 +25,7 @@ services:
       - "./ruskin-angular/src/assets/images:/ruskin-angular/dist/images"
   # The mongodb
   database:
-    build: ./ruskin-database
+    build: ./mf-database
     ports:
       - '127.0.0.1:27017:27017'
     container_name: ruskin_db
